@@ -1,0 +1,12 @@
+.field {
+   padding: 10px 16px;
+   border: 1px solid rgba(var(--color-gray), 0.6);
+   border-radius: var(--radius-default);
+   transition: border-color ease-in-out 0.2s;
+   &::placeholder {
+      color: rgba(var(--color-gray), 0.6);
+   }
+   &:focus {
+      border-color: rgb(var(--color-primary));
+   }
+}

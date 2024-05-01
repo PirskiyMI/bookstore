@@ -1,0 +1,13 @@
+.button {
+   padding: 10px 16px;
+   color: rgba(var(--color-gray), 0.6);
+   border: 1px solid rgba(var(--color-gray), 0.6);
+   border-radius: var(--radius-default);
+   transition: all ease-in-out 0.2s;
+   @media (any-hover: hover) {
+      &:hover {
+         color: rgb(var(--color-primary));
+         border-color: rgb(var(--color-primary));
+      }
+   }
+}

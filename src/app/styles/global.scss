@@ -1,0 +1,32 @@
+@import './variables.scss';
+@import './normalize.scss';
+
+body {
+   width: 100vw;
+   min-width: 560px;
+   font-family: var(--font-family);
+   font-size: var(--font-s-text-default);
+   font-weight: var(--font-w-default);
+   line-height: var(--line-h-default);
+   overflow-x: hidden;
+   &::-webkit-scrollbar {
+      display: none;
+   }
+}
+
+#root {
+   width: 100%;
+}
+
+.preloader {
+   height: 80vh;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.container {
+   max-width: 1232px;
+   margin: 0 auto;
+   padding: 0 16px;
+}
