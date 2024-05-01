@@ -5,8 +5,8 @@ import {
    createRoutesFromElements,
 } from 'react-router-dom';
 
-import { MainPage } from 'pages/main-page';
 import { Routes } from 'shared/constants';
+import { MainPage } from 'pages/main-page';
 
 import { AppLayout } from '../layout';
 
