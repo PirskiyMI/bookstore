@@ -1,8 +1,9 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import { Routes } from 'shared/constants';
-import { useInput, useIsOpen } from 'shared/lib/hooks';
+import { useAppDispatch, useInput, useIsOpen } from 'shared/lib/hooks';
+import { navMenuActions } from 'shared/model/slices';
 import { Burger } from 'shared/ui/Burger';
 import { Logo } from 'shared/ui/Logo';
 import { MyButton } from 'shared/ui/MyButton';
@@ -13,6 +14,12 @@ import styles from './TheHeaderMobile.module.scss';
 export const TheHeaderMobile: FC = () => {
    const { isOpen, handleOpen, handleClose } = useIsOpen();
    const { value, changeHandler } = useInput();
+   const { setMenuIsOpen } = navMenuActions;
+   const dispatch = useAppDispatch();
+
+   useEffect(() => {
+      dispatch(setMenuIsOpen(isOpen));
+   }, [isOpen, dispatch, setMenuIsOpen]);
 
    return (
       <div className={`${styles.header__container} container`}>
