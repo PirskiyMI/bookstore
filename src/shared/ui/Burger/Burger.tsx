@@ -2,12 +2,12 @@ import { FC, memo } from 'react';
 
 import styles from './Burger.module.scss';
 
-interface Props {
+interface IProps {
    isOpen: boolean;
    setOpen: () => void;
 }
 
-export const Burger: FC<Props> = memo(({ isOpen, setOpen }) => {
+export const Burger: FC<IProps> = memo(({ isOpen, setOpen }) => {
    const classes = isOpen ? `${styles.burger} ${styles.burger_active}` : styles.burger;
 
    return (

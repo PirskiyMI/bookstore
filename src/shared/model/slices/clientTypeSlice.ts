@@ -2,11 +2,11 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
 import { TClientType } from 'shared/lib/types';
 
-interface State {
+interface IState {
    clientType: TClientType | null;
 }
 
-const initialState: State = {
+const initialState: IState = {
    clientType: null,
 };
 
