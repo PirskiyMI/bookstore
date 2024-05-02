@@ -1,0 +1,21 @@
+.header {
+   &__container {
+      height: 54px;
+      gap: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+   }
+   &__search,
+   &__field,
+   &__cart,
+   &__button {
+      height: 100%;
+   }
+   &__search {
+      flex: 0 1 800px;
+   }
+   &__field {
+      width: 100%;
+   }
+}
