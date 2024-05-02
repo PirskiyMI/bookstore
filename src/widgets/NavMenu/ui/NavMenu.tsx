@@ -1,31 +1,14 @@
 import { FC } from 'react';
-import { Link } from 'react-router-dom';
 
 import styles from './NevMenu.module.scss';
+import { NavList } from './NavList';
 
 export const NavMenu: FC = () => {
    return (
-      <nav className={styles.nav}>
-         <div className={`${styles.nav__container} container`}>
+      <nav className={`${styles.nav} ${styles.nav_active}`}>
+         <div className={`container`}>
             <NavList />
          </div>
       </nav>
-   );
-};
-
-const NavList: FC = () => {
-   return (
-      <ul className={styles.nav__list}>
-         <li className={styles.nav__item}>
-            <Link to="#" className={styles.nav__link}>
-               New
-            </Link>
-         </li>
-         <li className={styles.nav__item}>
-            <Link to="#" className={styles.nav__link}>
-               TypeScript
-            </Link>
-         </li>
-      </ul>
    );
 };
