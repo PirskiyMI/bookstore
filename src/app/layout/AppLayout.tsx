@@ -4,6 +4,7 @@ import { Outlet } from 'react-router-dom';
 import { useAppDispatch } from 'shared/lib/hooks';
 import { clientTypeActions } from 'shared/model/slices';
 import { TheHeader } from 'widgets/TheHeader';
+import { NavMenu } from 'widgets/NavMenu';
 
 export const AppLayout: FC = () => {
    const { setClientType } = clientTypeActions;
@@ -16,6 +17,7 @@ export const AppLayout: FC = () => {
    return (
       <div>
          <TheHeader />
+         <NavMenu />
          <main>
             <Outlet />
          </main>

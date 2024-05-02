@@ -1,0 +1,13 @@
+.nav {
+   padding: 20px 0;
+   background-color: rgba(var(--color-gray), 0.06);
+   @media (width <=1024px) {
+      height: 0px;
+      padding: 0px;
+      overflow: hidden;
+      transition: all ease-in-out 0.2s;
+      &_active {
+         height: 510px;
+      }
+   }
+}
