@@ -1,5 +1,7 @@
 import { FC } from 'react';
 
+import { useAppSelector } from 'shared/lib/hooks';
+import { clientTypeSelector } from 'shared/model/selectors';
 import { BookDetails, bookDetails } from 'entities/BookDetails';
 import { BookAuthor } from 'entities/BookAuthor';
 import { BookDescription } from 'entities/BookDescription';
@@ -7,13 +9,17 @@ import { BookDescription } from 'entities/BookDescription';
 import styles from './BookInformation.module.scss';
 
 export const BookInformation: FC = () => {
+   const clientType = useAppSelector(clientTypeSelector);
+
    return (
       <div className={styles.information}>
          <div className={styles.information__header}>
             <BookDetails {...bookDetails} addToCartButton={<button>AddToCartButton</button>} />
-            <div className={styles.information__authors}>
-               <BookAuthor author="Test testov" />
-            </div>
+            {clientType === 'desktop' && (
+               <div className={styles.information__authors}>
+                  <BookAuthor author="Test testov" />
+               </div>
+            )}
          </div>
          <BookDescription
             description={

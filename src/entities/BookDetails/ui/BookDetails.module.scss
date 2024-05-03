@@ -41,4 +41,8 @@
    &__value {
       color: rgb(var(--color-accent));
    }
+   @media (width <= 1024px) {
+      flex-direction: column;
+      align-items: center;
+   }
 }
