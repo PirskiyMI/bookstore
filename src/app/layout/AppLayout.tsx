@@ -3,6 +3,7 @@ import { Outlet } from 'react-router-dom';
 
 import { useAppDispatch } from 'shared/lib/hooks';
 import { clientTypeActions } from 'shared/model/slices';
+import { TheFooter } from 'widgets/theFooter';
 
 export const AppLayout: FC = () => {
    const { setClientType } = clientTypeActions;
@@ -17,6 +18,7 @@ export const AppLayout: FC = () => {
          <main>
             <Outlet />
          </main>
+         <TheFooter />
       </div>
    );
 };
