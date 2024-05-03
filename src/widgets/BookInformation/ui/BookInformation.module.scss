@@ -1,0 +1,15 @@
+.information {
+   flex-direction: column;
+   &,
+   &__header {
+      display: flex;
+      gap: 40px;
+   }
+   &__authors {
+      padding: 20px;
+      align-self: start;
+      flex: 1 0 300px;
+      background-color: rgba(var(--color-gray), 0.06);
+      border-radius: var(--radius-default);
+   }
+}
