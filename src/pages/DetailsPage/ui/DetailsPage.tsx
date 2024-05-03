@@ -5,6 +5,7 @@ import styles from './DetailsPage.module.scss';
 import { BookDetails } from 'entities/BookDetails';
 import { bookDetails } from 'entities/BookDetails';
 import { BookAuthor } from 'entities/BookAuthor';
+import { Title } from 'shared/ui/Title/Title';
 
 export const DetailsPage: FC = () => {
    //const { id } = useParams();
@@ -12,7 +13,8 @@ export const DetailsPage: FC = () => {
    return (
       <div className={styles.details}>
          <BookDetails {...bookDetails} addToCartButton={<button>AddToCartButton</button>} />
-         <BookAuthor author='test testov'/>
+         <BookAuthor author="test testov" />
+         <Title>Title</Title>
       </div>
    );
 };
