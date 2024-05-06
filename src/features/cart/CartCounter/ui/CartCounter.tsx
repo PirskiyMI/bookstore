@@ -18,7 +18,7 @@ export const CartCounter: FC<IProps> = ({ ISBN }) => {
 
    return (
       <div className={styles.counter}>
-         <button className={styles.counter__button} onClick={handleDecrement} disabled={count <= 0}>
+         <button className={styles.counter__button} onClick={handleDecrement} disabled={count <= 1}>
             -
          </button>
          <span className={styles.counter__output}>{count}</span>

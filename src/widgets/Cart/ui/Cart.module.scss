@@ -1,0 +1,28 @@
+.cart {
+   padding: 20px 40px;
+   display: flex;
+   flex-direction: column;
+   gap: 40px;
+   color: rgba(var(--color-gray), 0.8);
+   border: 1px solid rgba(var(--color-gray), 0.2);
+   border-radius: var(--radius-default);
+   &__list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+   }
+   &__item {
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(var(--color-gray), 0.2);
+   }
+   &__title,
+   &__footer {
+      font-size: var(--font-s-title-large);
+   }
+   &__footer {
+      align-self: flex-end;
+   }
+   &__total {
+      color: rgb(var(--color-accent));
+   }
+}

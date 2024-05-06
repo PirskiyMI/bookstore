@@ -17,6 +17,12 @@ const initialState: TState = {
       price: '32.04',
       count: 1,
    },
+   '9781484211830': {
+      title: 'The Definitive Guide to MongoDB, 3rd Edition',
+      image: 'https://itbook.store/img/books/9781484211830.png',
+      price: '47.11',
+      count: 1,
+   },
 };
 
 const cartSlice = createSlice({

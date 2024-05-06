@@ -19,7 +19,7 @@ export const CartItem: FC<IProps> = ({ title, image, price, counter, deleteButto
             <h3 className={styles.cartItem__title}>{title}</h3>
          </div>
          <div className={styles.cartItem__body}>
-            <div className={styles.cartItem__price}>{price}</div>
+            <div className={styles.cartItem__price}>${price}</div>
             <div className={styles.cartItem__controls}>
                <div className={styles.cartItem__counter}>{counter}</div>
                <div className={styles.cartItem__delete}>{deleteButton}</div>

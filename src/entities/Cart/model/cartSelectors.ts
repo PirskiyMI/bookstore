@@ -9,7 +9,7 @@ export const cartTotalPriceSelector = createSelector([cartSelector], (selector) 
       totalPrice += selector[key].count * +selector[key].price;
    }
 
-   return totalPrice;
+   return totalPrice.toFixed(2);
 });
 
 export const cartItemCountSelector = createSelector(

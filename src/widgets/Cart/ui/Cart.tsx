@@ -2,30 +2,44 @@ import { FC } from 'react';
 
 import { useAppSelector } from 'shared/lib/hooks';
 import { CartItem } from 'entities/CartItem';
-import { cartTotalPriceSelector } from 'entities/Cart';
+import { cartSelector, cartTotalPriceSelector } from 'entities/Cart';
 import { CartCounter } from 'features/cart/CartCounter';
 
 import styles from './Cart.module.scss';
 import { RemoveFromCart } from 'features/cart/RemoveFromCart';
 
 export const Cart: FC = () => {
+   const cartItemList = Object.entries(useAppSelector(cartSelector));
    const totalPrice = useAppSelector(cartTotalPriceSelector);
+
+   const cartList = (
+      <ul className={styles.cart__list}>
+         {cartItemList.map(([ISBN13, el]) => (
+            <li key={ISBN13} className={styles.cart__item}>
+               <CartItem
+                  ISBN13={ISBN13}
+                  {...el}
+                  counter={<CartCounter ISBN={ISBN13} />}
+                  deleteButton={<RemoveFromCart ISBN13={ISBN13} />}
+               />
+            </li>
+         ))}
+      </ul>
+   );
 
    return (
       <section className={styles.cart}>
-         <ul className={styles.cart__list}>
-            <li className={styles.cart__item}>
-               <CartItem
-                  ISBN13="9781484206485"
-                  title="Practical MongoDB"
-                  image="https://itbook.store/img/books/9781484206485.png"
-                  price="32.04"
-                  counter={<CartCounter ISBN="9781484206485" />}
-                  deleteButton={<RemoveFromCart ISBN13="9781484206485" />}
-               />
-            </li>
-         </ul>
-         <div>Total: ${totalPrice}</div>
+         {!cartItemList.length ? (
+            <div>Cart is empty</div>
+         ) : (
+            <>
+               <h2 className={styles.cart__title}>Products</h2>
+               {cartList}
+               <div className={styles.cart__footer}>
+                  Total: <span className={styles.cart__total}>${totalPrice}</span>
+               </div>
+            </>
+         )}
       </section>
    );
 };
