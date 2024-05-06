@@ -1,9 +1,16 @@
 import { FC } from 'react';
 
+import { useAppSelector } from 'shared/lib/hooks';
+import { CartItem } from 'entities/CartItem';
+import { cartTotalPriceSelector } from 'entities/Cart';
+
 import styles from './Cart.module.scss';
-import { CartItem } from 'entities/CartItem/ui/CartItem';
 
 export const Cart: FC = () => {
+   const totalPrice = useAppSelector(cartTotalPriceSelector);
+
+   console.log(totalPrice);
+
    return (
       <section className={styles.cart}>
          <ul className={styles.cart__list}>
