@@ -1,0 +1,28 @@
+.counter {
+   display: flex;
+   align-items: center;
+   font-weight: var(--font-w-bold);
+   gap: 12px;
+   &__button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      color: rgb(var(--color-primary));
+      border: 1px solid rgb(var(--color-primary));
+      border-radius: var(--radius-default);
+      transition: background-color ease-in-out 0.2s, color ease-in-out 0.2s;
+      @media (any-hover: hover) {
+         &:hover {
+            color: rgb(var(--color-light));
+            background-color: rgb(var(--color-primary));
+         }
+      }
+      &:disabled {
+         color: rgba(var(--color-primary), 0.6);
+         border-color: rgba(var(--color-primary), 0.4);
+         background-color: transparent;
+      }
+   }
+}

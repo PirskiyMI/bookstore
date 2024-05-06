@@ -11,3 +11,8 @@ export const cartTotalPriceSelector = createSelector([cartSelector], (selector) 
 
    return totalPrice;
 });
+
+export const cartItemCountSelector = createSelector(
+   [cartSelector, (_cartSelector, id: string) => id],
+   (selector, id) => selector[id].count,
+);

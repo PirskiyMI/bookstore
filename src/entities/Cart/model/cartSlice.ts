@@ -11,17 +11,11 @@ type TState = Record<
 >;
 
 const initialState: TState = {
-   '97543214': {
+   '9781484206485': {
       title: 'Practical MongoDB',
       image: 'https://itbook.store/img/books/9781484206485.png',
       price: '32.04',
       count: 1,
-   },
-   '97543218': {
-      title: 'Practical MongoDB',
-      image: 'https://itbook.store/img/books/9781484206485.png',
-      price: '1.04',
-      count: 5,
    },
 };
 
@@ -33,7 +27,7 @@ const cartSlice = createSlice({
          state[payload].count++;
       },
       decrementCount: (state, { payload }: PayloadAction<string>) => {
-         state[payload].count++;
+         state[payload].count--;
       },
    },
 });
