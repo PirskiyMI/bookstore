@@ -1,0 +1,14 @@
+.slider {
+    &__info{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        &__title{
+            font-size: 24px;
+            color: rgba(var(--color-gray));
+        }
+    }
+    &__wrapper{
+        width: 200px;
+    }
+}
