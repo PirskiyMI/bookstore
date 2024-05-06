@@ -19,7 +19,7 @@ export const AppLayout: FC = () => {
       <div>
          <TheHeader />
          <NavMenu />
-         <main className='container'>
+         <main className="container">
             <Outlet />
          </main>
          <TheFooter />
