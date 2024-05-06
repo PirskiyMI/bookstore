@@ -29,6 +29,9 @@ const cartSlice = createSlice({
       decrementCount: (state, { payload }: PayloadAction<string>) => {
          state[payload].count--;
       },
+      removeFromCart: (state, { payload }: PayloadAction<string>) => {
+         delete state[payload];
+      },
    },
 });
 

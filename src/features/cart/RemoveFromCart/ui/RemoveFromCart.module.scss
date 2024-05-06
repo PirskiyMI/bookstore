@@ -1,0 +1,21 @@
+.removeButton {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: 30px;
+   height: 30px;
+   font-weight: var(--font-w-bold);
+   color: rgb(var(--color-danger));
+   border: 1px solid rgb(var(--color-danger));
+   border-radius: var(--radius-default);
+   transition: color ease-in-out 0.2s, background-color ease-in-out 0.2s;
+   @media (any-hover: hover) {
+      &:hover {
+         color: rgb(var(--color-light));
+         background-color: rgb(var(--color-danger));
+      }
+   }
+   &__span {
+      transform: rotate(45deg);
+   }
+}

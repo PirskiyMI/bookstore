@@ -6,6 +6,7 @@ import { cartTotalPriceSelector } from 'entities/Cart';
 import { CartCounter } from 'features/cart/CartCounter';
 
 import styles from './Cart.module.scss';
+import { RemoveFromCart } from 'features/cart/RemoveFromCart';
 
 export const Cart: FC = () => {
    const totalPrice = useAppSelector(cartTotalPriceSelector);
@@ -20,7 +21,7 @@ export const Cart: FC = () => {
                   image="https://itbook.store/img/books/9781484206485.png"
                   price="32.04"
                   counter={<CartCounter ISBN="9781484206485" />}
-                  deleteButton={'deleteButton'}
+                  deleteButton={<RemoveFromCart ISBN13="9781484206485" />}
                />
             </li>
          </ul>
