@@ -1,32 +1,53 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 
-import { useAppSelector } from 'shared/lib/hooks';
+import { useAppDispatch, useAppSelector } from 'shared/lib/hooks';
 import { clientTypeSelector } from 'shared/model/selectors';
-import { BookDetails, bookDetails } from 'entities/BookDetails';
+import { BookDetails } from 'entities/BookDetails';
 import { BookAuthor } from 'entities/BookAuthor';
 import { BookDescription } from 'entities/BookDescription';
 
+import { fetchBookInformation } from '../model/bookInformationThunks';
+import {
+   bookInformationDataSelector,
+   bookInformationLoadingSelector,
+} from '../model/bookInformationSelectors';
+
 import styles from './BookInformation.module.scss';
 
-export const BookInformation: FC = () => {
+interface IProps {
+   ISBN13: string;
+}
+
+export const BookInformation: FC<IProps> = ({ ISBN13 }) => {
    const clientType = useAppSelector(clientTypeSelector);
+   const bookInformation = useAppSelector(bookInformationDataSelector);
+   const loading = useAppSelector(bookInformationLoadingSelector);
+   const dispatch = useAppDispatch();
+
+   useEffect(() => {
+      dispatch(fetchBookInformation(ISBN13));
+   }, [ISBN13, dispatch]);
+
+   if (loading) return <section>Loading...</section>;
+   if (!bookInformation) return <section>No information about this book</section>;
+
+   const { bookDetails, bookDescription, publicationInformation } = bookInformation;
 
    return (
-      <div className={styles.information}>
+      <section className={styles.information}>
          <div className={styles.information__header}>
-            <BookDetails {...bookDetails} addToCartButton={<button>AddToCartButton</button>} />
+            <BookDetails
+               {...bookDetails}
+               publication={publicationInformation}
+               addToCartButton={<button>AddToCartButton</button>}
+            />
             {clientType === 'desktop' && (
                <div className={styles.information__authors}>
-                  <BookAuthor author="Test testov" />
+                  <BookAuthor author={bookDetails.authors} />
                </div>
             )}
          </div>
-         <BookDescription
-            description={
-               'An application running in the cloud can benefit from incredible efficiencies, but they come with unique security threats too. A DevOps teams highest priority is understanding those risks and hardening the system against them.Securing DevOps teaches you the essential techniques to secure your cloud ...'
-            }
-            url={'https://itbook.store/books/9781617294136'}
-         />
-      </div>
+         <BookDescription {...bookDescription} />
+      </section>
    );
 };

@@ -4,7 +4,7 @@ import { Title } from 'shared/ui/Title';
 
 import styles from './BookDescription.module.scss';
 
-interface IProps {
+export interface IProps {
    url: string;
    description: string;
 }

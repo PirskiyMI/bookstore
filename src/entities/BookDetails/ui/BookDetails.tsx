@@ -4,7 +4,7 @@ import { Rating } from 'shared/ui/Rating';
 
 import styles from './BookDetails.module.scss';
 
-interface IPublicationInformation {
+export interface IPublicationInformation {
    publisher: string;
    published: string;
    pages: string;
@@ -12,13 +12,16 @@ interface IPublicationInformation {
    ISBN13: string;
 }
 
-interface IProps {
+export interface IBookDetails {
    title: string;
    subtitle: string;
    authors: string;
    rating: string;
    price: string;
    image: string;
+}
+
+interface IProps extends IBookDetails {
    publication: IPublicationInformation;
    addToCartButton: ReactNode;
 }
@@ -64,7 +67,7 @@ export const BookDetails: FC<IProps> = ({
             </ul>
 
             <div className={styles.book__price}>
-               Price: <span className={styles.book__value}>{price}</span>{' '}
+               Price: <span className={styles.book__value}>${price}</span>{' '}
             </div>
 
             <div className={styles.book__button}>{addToCartButton}</div>
