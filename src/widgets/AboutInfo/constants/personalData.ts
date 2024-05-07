@@ -1,0 +1,28 @@
+export const personalData = [
+    {
+        id: 1,
+        img: 'https://avatars.githubusercontent.com/u/114065463?v=4',
+        name: 'Максим',
+        surname: 'Пирский',
+        post: 'Frontend Developer',
+        github: 'PirskiyMI',
+        githubUrl: 'https://github.com/PirskiyMI',
+        telegram: '@pirskiymi',
+        telegramUrl: 'https://t.me/pirskiymi',
+        mail: 'pirskiymi98@gmail.com',
+        mailUrl: 'mailto:pirskiymi98@gmail.com',
+    },
+    {
+        id: 2,
+        img: 'https://avatars.githubusercontent.com/u/100757585?s=400&u=0d82c70cce06569ed900ec09cbbd4ebf049046a5&v=4',
+        name: 'Максим',
+        surname: 'Попов',
+        post: 'Frontend Developer',
+        github: 'Maksim-pp',
+        githubUrl: 'https://github.com/Maksim-pp',
+        telegram: '@Maksimka_pp',
+        telegramUrl: 'https://t.me/Maksimka_pp',
+        mail: 'maks-atos-popov@mail.ru',
+        mailUrl: 'mailto:maks-atos-popov@mail.ru',
+    },
+];
