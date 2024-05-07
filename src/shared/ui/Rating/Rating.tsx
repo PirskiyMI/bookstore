@@ -20,7 +20,7 @@ export const Rating: FC<IProps> = ({ rating }) => {
                   : styles.rating__icon;
 
             return (
-               <div>
+               <div key={el}>
                   <StarIcon className={classes} />
                </div>
             );
