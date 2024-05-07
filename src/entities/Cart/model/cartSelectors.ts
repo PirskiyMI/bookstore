@@ -20,3 +20,13 @@ export const cartItemCountSelector = createSelector(
 export const cartListSelector = createSelector([cartSelector], (selector) =>
    Object.entries(selector),
 );
+
+export const cartTotalCountSelector = createSelector([cartSelector], (selector) => {
+   let totalCount = 0;
+
+   for (const key in selector) {
+      totalCount += selector[key].count;
+   }
+
+   return totalCount;
+});

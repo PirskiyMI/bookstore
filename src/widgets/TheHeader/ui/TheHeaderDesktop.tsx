@@ -5,9 +5,9 @@ import { Routes } from 'shared/constants';
 import { useInput } from 'shared/lib/hooks';
 import { Logo } from 'shared/ui/Logo';
 import { MyField } from 'shared/ui/MyField';
-import { MyButton } from 'shared/ui/MyButton';
 
 import styles from './TheHeaderDesktop.module.scss';
+import { TheHeaderCartButton } from './TheHeaderCartButton';
 
 export const TheHeaderDesktop: FC = () => {
    const { value, changeHandler } = useInput();
@@ -26,7 +26,9 @@ export const TheHeaderDesktop: FC = () => {
             />
          </div>
          <div className={styles.header__cart}>
-            <MyButton className={styles.header__button}>Корзина</MyButton>
+            <div className={styles.header__button}>
+               <TheHeaderCartButton />
+            </div>
          </div>
       </div>
    );

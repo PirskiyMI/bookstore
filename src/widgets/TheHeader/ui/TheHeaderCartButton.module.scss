@@ -1,0 +1,33 @@
+.cartButton {
+   &__wrapper {
+      position: relative;
+   }
+   &__icon {
+      width: 30px;
+      height: 30px;
+      fill: rgba(var(--color-gray), 0.6);
+      transition: fill ease-in-out 0.2s;
+   }
+   &__count {
+      padding: 2px;
+      min-width: 16px;
+      height: 16px;
+      position: absolute;
+      top: -10%;
+      right: -20%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: rgb(var(--color-light));
+      background-color: rgb(var(--color-accent));
+      border-radius: var(--radius-default);
+   }
+   @media (any-hover: hover) {
+      &:hover {
+         .cartButton__icon {
+            fill: rgb(var(--color-primary));
+         }
+      }
+   }
+}

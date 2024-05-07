@@ -4,4 +4,5 @@ export {
    cartTotalPriceSelector,
    cartItemCountSelector,
    cartListSelector,
+   cartTotalCountSelector,
 } from './cartSelectors';
