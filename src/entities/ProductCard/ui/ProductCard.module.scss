@@ -1,56 +1,50 @@
-.productList{
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-}
+
 .productCard {
-    overflow: hidden;
-    width: 238px;
-    position: relative;
-    &__image{
-        max-width: 238px;
-    }
-    &__title{
-        width: 100%;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-
-        font-size: var(--font-s-title-default);
-    }
-    &__subtitle{
-        width: 100%;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-
-        font-size: 12px;
-    }
-    &__price{
-        font-size: var(--font-s-title-large);
-        color: rgb(var(--color-accent));
-    }
-    &__popup{
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
-        padding: 10px;
-        overflow: hidden;
-        width: 238px;
-        height: 170px;
-        transition: 0.5s ease-in-out;
-        position: absolute;
-        bottom: -100%;
-        background-color: white;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    &:hover {
-        .productCard__popup{
-            bottom: 0;
-        }
-    }
-    &__button{
-        align-self: flex-end;
-    }
+   overflow: hidden;
+   width: 238px;
+   position: relative;
+   &__image {
+      max-width: 238px;
+   }
+   &__title {
+      width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: var(--font-s-title-default);
+   }
+   &__subtitle {
+      width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: 12px;
+   }
+   &__price {
+      font-size: var(--font-s-title-large);
+      color: rgb(var(--color-accent));
+   }
+   &__popup {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding: 10px;
+      overflow: hidden;
+      width: 238px;
+      height: 170px;
+      transition: 0.4s ease;
+      position: absolute;
+      bottom: -100%;
+      background-color: white;
+      margin-left: auto;
+      margin-right: auto;
+   }
+   &:hover {
+      .productCard__popup {
+         bottom: 0;
+      }
+   }
+   &__button {
+      align-self: flex-end;
+   }
 }
