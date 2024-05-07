@@ -1,0 +1,21 @@
+.button {
+   color: rgba(var(--color-gray), 0.6);
+   &__wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+   }
+   &__icon {
+      width: 18px;
+      height: 18px;
+      fill: rgba(var(--color-gray), 0.6);
+   }
+   @media (any-hover: hover) {
+      &:hover {
+         .button__icon {
+            fill: rgb(var(--color-primary));
+         }
+      }
+   }
+}

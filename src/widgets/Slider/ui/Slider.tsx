@@ -7,6 +7,7 @@ import 'swiper/scss';
 import { Title } from 'shared/ui/Title';
 import { MyButton } from 'shared/ui/MyButton';
 import { IProductCard, ProductCard } from 'entities/ProductCard';
+import { AddToCart } from 'features/cart/AddToCart';
 
 import { fetchBookList } from '../api/fetchBookList';
 
@@ -66,9 +67,20 @@ export const Slider: FC<IProps> = ({ title, path }) => {
             <div className={styles.slider__wrapper}>
                {bookList.map((el) => (
                   <SwiperSlide key={el.ISBN13}>
-                     <Link to={`books/${el.ISBN13}`}>
-                        <ProductCard {...el} />
-                     </Link>
+                     <ProductCard
+                        {...el}
+                        addToCartButton={
+                           <AddToCart
+                              ISBN13={el.ISBN13}
+                              data={{
+                                 count: 1,
+                                 image: el.image,
+                                 price: el.price,
+                                 title: el.title,
+                              }}
+                           />
+                        }
+                     />
                   </SwiperSlide>
                ))}
             </div>
