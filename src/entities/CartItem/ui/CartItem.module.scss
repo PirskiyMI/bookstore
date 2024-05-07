@@ -42,7 +42,7 @@
          color: rgb(var(--color-primary));
       }
    }
-   @media (width <= 1024px) {
+   @media (width <= 900px) {
       flex-direction: column;
       align-items: start;
    }

@@ -1,20 +1,27 @@
-import { FC } from 'react';
+import { FC, memo, useCallback } from 'react';
 
-import styles from './CartCounter.module.scss';
 import { useAppDispatch, useAppSelector } from 'shared/lib/hooks';
 import { cartActions, cartItemCountSelector } from 'entities/Cart';
 
+import styles from './CartCounter.module.scss';
+
 interface IProps {
-   ISBN: string;
+   ISBN13: string;
 }
 
-export const CartCounter: FC<IProps> = ({ ISBN }) => {
-   const count = useAppSelector((state) => cartItemCountSelector(state, ISBN));
+export const CartCounter: FC<IProps> = memo(({ ISBN13 }) => {
+   const count = useAppSelector((state) => cartItemCountSelector(state, ISBN13));
    const { incrementCount, decrementCount } = cartActions;
    const dispatch = useAppDispatch();
 
-   const handleIncrement = () => dispatch(incrementCount(ISBN));
-   const handleDecrement = () => dispatch(decrementCount(ISBN));
+   const handleIncrement = useCallback(
+      () => dispatch(incrementCount(ISBN13)),
+      [ISBN13, dispatch, incrementCount],
+   );
+   const handleDecrement = useCallback(
+      () => dispatch(decrementCount(ISBN13)),
+      [ISBN13, decrementCount, dispatch],
+   );
 
    return (
       <div className={styles.counter}>
@@ -27,4 +34,4 @@ export const CartCounter: FC<IProps> = ({ ISBN }) => {
          </button>
       </div>
    );
-};
+});

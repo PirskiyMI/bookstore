@@ -25,4 +25,9 @@
          background-color: transparent;
       }
    }
+   &__output {
+      width: 16px;
+      display: flex;
+      justify-content: center;
+   }
 }

@@ -1,4 +1,4 @@
-import { FC, ReactNode } from 'react';
+import { FC, ReactNode, memo } from 'react';
 
 import styles from './CartItem.module.scss';
 
@@ -11,7 +11,7 @@ interface IProps {
    deleteButton: ReactNode;
 }
 
-export const CartItem: FC<IProps> = ({ title, image, price, counter, deleteButton }) => {
+export const CartItem: FC<IProps> = memo(({ title, image, price, counter, deleteButton }) => {
    return (
       <article className={styles.cartItem}>
          <div className={styles.cartItem__preview}>
@@ -27,4 +27,4 @@ export const CartItem: FC<IProps> = ({ title, image, price, counter, deleteButto
          </div>
       </article>
    );
-};
+});

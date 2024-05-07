@@ -2,14 +2,14 @@ import { FC } from 'react';
 
 import { useAppSelector } from 'shared/lib/hooks';
 import { CartItem } from 'entities/CartItem';
-import { cartSelector, cartTotalPriceSelector } from 'entities/Cart';
+import { cartListSelector, cartTotalPriceSelector } from 'entities/Cart';
 import { CartCounter } from 'features/cart/CartCounter';
 
 import styles from './Cart.module.scss';
 import { RemoveFromCart } from 'features/cart/RemoveFromCart';
 
 export const Cart: FC = () => {
-   const cartItemList = Object.entries(useAppSelector(cartSelector));
+   const cartItemList = useAppSelector(cartListSelector);
    const totalPrice = useAppSelector(cartTotalPriceSelector);
 
    const cartList = (
@@ -19,7 +19,7 @@ export const Cart: FC = () => {
                <CartItem
                   ISBN13={ISBN13}
                   {...el}
-                  counter={<CartCounter ISBN={ISBN13} />}
+                  counter={<CartCounter ISBN13={ISBN13} />}
                   deleteButton={<RemoveFromCart ISBN13={ISBN13} />}
                />
             </li>

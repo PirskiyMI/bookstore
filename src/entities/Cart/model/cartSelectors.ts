@@ -16,3 +16,7 @@ export const cartItemCountSelector = createSelector(
    [cartSelector, (_cartSelector, id: string) => id],
    (selector, id) => selector[id].count,
 );
+
+export const cartListSelector = createSelector([cartSelector], (selector) =>
+   Object.entries(selector),
+);
