@@ -6,7 +6,7 @@ import 'swiper/scss';
 
 import { Title } from 'shared/ui/Title';
 import { MyButton } from 'shared/ui/MyButton';
-import { IProductCard, ProductCard } from 'entities/ProductCard';
+import { BookPreview, IBookPreview } from 'entities/book/BookPreview';
 import { AddToCart } from 'features/cart/AddToCart';
 
 import { fetchBookList } from '../api/fetchBookList';
@@ -19,7 +19,7 @@ interface IProps {
 }
 
 export const Slider: FC<IProps> = ({ title, path }) => {
-   const [bookList, setBookList] = useState<IProductCard[]>([]);
+   const [bookList, setBookList] = useState<IBookPreview[]>([]);
    const [isLoading, setIsLoading] = useState(false);
    const [isError, setIsError] = useState(false);
 
@@ -67,7 +67,7 @@ export const Slider: FC<IProps> = ({ title, path }) => {
             <div className={styles.slider__wrapper}>
                {bookList.map((el) => (
                   <SwiperSlide key={el.ISBN13}>
-                     <ProductCard
+                     <BookPreview
                         {...el}
                         addToCartButton={
                            <AddToCart

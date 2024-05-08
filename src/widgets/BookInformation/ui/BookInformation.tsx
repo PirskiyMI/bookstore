@@ -3,7 +3,7 @@ import { FC } from 'react';
 import { useAppSelector } from 'shared/lib/hooks';
 import { clientTypeSelector } from 'shared/model/selectors';
 import { BookDetails, bookDetails } from 'entities/book/BookDetails';
-import { BookAuthor } from 'entities/Author';
+import { Author } from 'entities/Author';
 import { BookDescription } from 'entities/book/BookDescription';
 
 import styles from './BookInformation.module.scss';
@@ -17,7 +17,7 @@ export const BookInformation: FC = () => {
             <BookDetails {...bookDetails} addToCartButton={<button>AddToCartButton</button>} />
             {clientType === 'desktop' && (
                <div className={styles.information__authors}>
-                  <BookAuthor author="Test testov" />
+                  <Author author="Test testov" />
                </div>
             )}
          </div>

@@ -1,23 +1,21 @@
-
-.productCard {
-   overflow: hidden;
+.bookPreview {
    width: 238px;
    position: relative;
+   overflow: hidden;
    &__image {
       max-width: 238px;
    }
-   &__title {
-      width: 100%;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      font-size: var(--font-s-title-default);
-   }
+   &__title,
    &__subtitle {
       width: 100%;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+   }
+   &__title {
+      font-size: var(--font-s-title-default);
+   }
+   &__subtitle {
       font-size: 12px;
    }
    &__price {
@@ -25,26 +23,27 @@
       color: rgb(var(--color-accent));
    }
    &__popup {
+      width: 238px;
+      height: 170px;
+      margin: 0 auto;
+      padding: 10px;
       display: flex;
       flex-direction: column;
       gap: 4px;
-      padding: 10px;
-      overflow: hidden;
-      width: 238px;
-      height: 170px;
-      transition: 0.4s ease;
       position: absolute;
       bottom: -100%;
-      background-color: white;
-      margin-left: auto;
-      margin-right: auto;
-   }
-   &:hover {
-      .productCard__popup {
-         bottom: 0;
-      }
+      background-color: rgb(var(--color-light));
+      overflow: hidden;
+      transition: 0.4s ease;
    }
    &__button {
       align-self: flex-end;
+   }
+   @media (any-hover: hover) {
+      &:hover {
+         .bookPreview__popup {
+            bottom: 0;
+         }
+      }
    }
 }
