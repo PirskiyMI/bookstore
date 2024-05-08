@@ -10,9 +10,11 @@ export const DetailsPage: FC = () => {
    //const { id } = useParams();
 
    return (
-      <div className={styles.details}>
-         <BredCrumbs />
-         <BookInformation />
+      <div className="container">
+         <div className={styles.details}>
+            <BredCrumbs />
+            <BookInformation />
+         </div>
       </div>
    );
 };
