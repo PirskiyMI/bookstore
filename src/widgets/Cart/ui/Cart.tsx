@@ -4,9 +4,9 @@ import { useAppSelector } from 'shared/lib/hooks';
 import { CartItem } from 'entities/CartItem';
 import { cartListSelector, cartTotalPriceSelector } from 'entities/Cart';
 import { CartCounter } from 'features/cart/CartCounter';
+import { RemoveFromCart } from 'features/cart/RemoveFromCart';
 
 import styles from './Cart.module.scss';
-import { RemoveFromCart } from 'features/cart/RemoveFromCart';
 
 export const Cart: FC = () => {
    const cartItemList = useAppSelector(cartListSelector);

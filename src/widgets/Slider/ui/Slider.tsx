@@ -1,9 +1,10 @@
 import { FC, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Navigation } from 'swiper/modules';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
 import 'swiper/scss';
 
+import ArrowIcon from 'shared/assets/icons/arrow.svg?react';
 import { Title } from 'shared/ui/Title';
 import { MyButton } from 'shared/ui/MyButton';
 import { BookPreview, IBookPreview } from 'entities/book/BookPreview';
@@ -63,28 +64,54 @@ export const Slider: FC<IProps> = ({ title, path }) => {
                <MyButton>SEE MORE</MyButton>
             </Link>
          </div>
-         <Swiper modules={[Navigation]} slidesPerView={5} navigation breakpoints={breakpoints}>
-            <div className={styles.slider__wrapper}>
-               {bookList.map((el) => (
-                  <SwiperSlide key={el.ISBN13}>
-                     <BookPreview
-                        {...el}
-                        addToCartButton={
-                           <AddToCart
-                              ISBN13={el.ISBN13}
-                              data={{
-                                 count: 1,
-                                 image: el.image,
-                                 price: el.price,
-                                 title: el.title,
-                              }}
-                           />
-                        }
-                     />
-                  </SwiperSlide>
-               ))}
-            </div>
+
+         <Swiper
+            modules={[Navigation]}
+            slidesPerView={5}
+            navigation={false}
+            breakpoints={breakpoints}>
+            {bookList.map((el) => (
+               <SwiperSlide key={el.ISBN13}>
+                  <BookPreview
+                     {...el}
+                     addToCartButton={
+                        <AddToCart
+                           ISBN13={el.ISBN13}
+                           data={{
+                              count: 1,
+                              image: el.image,
+                              price: el.price,
+                              title: el.title,
+                           }}
+                        />
+                     }
+                  />
+               </SwiperSlide>
+            ))}
+            <SliderNavigation />
          </Swiper>
       </section>
+   );
+};
+
+const SliderNavigation: FC = () => {
+   const swiper = useSwiper();
+
+   const handleToPrevSlide = () => swiper.slidePrev();
+   const handleToNextSlide = () => swiper.slideNext();
+
+   return (
+      <>
+         <button
+            onClick={handleToPrevSlide}
+            className={`${styles.slider__navigation} ${styles.slider__navigation_prev}`}>
+            <ArrowIcon className={styles.slider__arrow} />
+         </button>
+         <button
+            onClick={handleToNextSlide}
+            className={`${styles.slider__navigation} ${styles.slider__navigation_next}`}>
+            <ArrowIcon className={styles.slider__arrow} />
+         </button>
+      </>
    );
 };
