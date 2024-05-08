@@ -14,12 +14,12 @@ import styles from './TheHeaderMobile.module.scss';
 export const TheHeaderMobile: FC = () => {
    const { isOpen, handleOpen, handleClose } = useIsOpen();
    const { value, changeHandler } = useInput();
-   const { setMenuIsOpen } = navMenuActions;
+   const { setIsNavMenuOpen } = navMenuActions;
    const dispatch = useAppDispatch();
 
    useEffect(() => {
-      dispatch(setMenuIsOpen(isOpen));
-   }, [isOpen, dispatch, setMenuIsOpen]);
+      dispatch(setIsNavMenuOpen(isOpen));
+   }, [isOpen, dispatch, setIsNavMenuOpen]);
 
    return (
       <div className={`${styles.header__container} container`}>

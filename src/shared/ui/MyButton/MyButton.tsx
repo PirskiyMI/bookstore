@@ -7,7 +7,7 @@ interface IProps extends HTMLAttributes<HTMLButtonElement> {
 }
 
 export const MyButton: FC<IProps> = ({ className, children, ...IProps }) => {
-   const classes = className ? `${styles.button} ${className}` : styles.button;
+   const classes = className ? `${styles.myButton} ${className}` : styles.myButton;
 
    return (
       <button {...IProps} className={classes}>

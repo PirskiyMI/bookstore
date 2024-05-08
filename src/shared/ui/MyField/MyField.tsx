@@ -11,7 +11,7 @@ interface IProps extends HTMLAttributes<HTMLInputElement> {
 
 export const MyField: FC<IProps> = memo(
    ({ value, type = 'text', placeholder, className, ...IProps }) => {
-      const classes = className ? `${styles.field} ${className}` : styles.field;
+      const classes = className ? `${styles.myField} ${className}` : styles.myField;
 
       return (
          <input

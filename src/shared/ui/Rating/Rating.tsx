@@ -1,4 +1,4 @@
-import { FC, useMemo } from 'react';
+import { FC, memo, useMemo } from 'react';
 
 import StarIcon from '../../assets/icons/star-icon.svg?react';
 
@@ -8,7 +8,7 @@ interface IProps {
    rating: string;
 }
 
-export const Rating: FC<IProps> = ({ rating }) => {
+export const Rating: FC<IProps> = memo(({ rating }) => {
    const ratingList = useMemo(() => ['1', '2', '3', '4', '5'], []);
 
    return (
@@ -27,4 +27,4 @@ export const Rating: FC<IProps> = ({ rating }) => {
          })}
       </div>
    );
-};
+});

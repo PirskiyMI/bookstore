@@ -12,7 +12,7 @@ const navMenuSlice = createSlice({
    name: 'navMenu',
    initialState,
    reducers: {
-      setMenuIsOpen: (state, { payload }: PayloadAction<boolean>) => {
+      setIsNavMenuOpen: (state, { payload }: PayloadAction<boolean>) => {
          state.isOpen = payload;
       },
    },
