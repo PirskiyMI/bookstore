@@ -1,12 +1,12 @@
 import { FC, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Navigation } from 'swiper/modules';
-import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/scss';
 
-import ArrowIcon from 'shared/assets/icons/arrow.svg?react';
 import { Title } from 'shared/ui/Title';
 import { MyButton } from 'shared/ui/MyButton';
+import { SliderController } from 'shared/ui/SliderController';
 import { BookPreview, IBookPreview } from 'entities/book/BookPreview';
 import { AddToCart } from 'features/cart/AddToCart';
 
@@ -88,30 +88,8 @@ export const Slider: FC<IProps> = ({ title, path }) => {
                   />
                </SwiperSlide>
             ))}
-            <SliderNavigation />
+            <SliderController theme="alternative" indentation={-10} />
          </Swiper>
       </section>
-   );
-};
-
-const SliderNavigation: FC = () => {
-   const swiper = useSwiper();
-
-   const handleToPrevSlide = () => swiper.slidePrev();
-   const handleToNextSlide = () => swiper.slideNext();
-
-   return (
-      <>
-         <button
-            onClick={handleToPrevSlide}
-            className={`${styles.slider__navigation} ${styles.slider__navigation_prev}`}>
-            <ArrowIcon className={styles.slider__arrow} />
-         </button>
-         <button
-            onClick={handleToNextSlide}
-            className={`${styles.slider__navigation} ${styles.slider__navigation_next}`}>
-            <ArrowIcon className={styles.slider__arrow} />
-         </button>
-      </>
    );
 };

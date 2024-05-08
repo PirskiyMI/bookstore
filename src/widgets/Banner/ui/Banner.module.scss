@@ -8,30 +8,4 @@
    &__img {
       object-fit: cover;
    }
-   &__navigation {
-      position: absolute;
-      top: 50%;
-      z-index: 1;
-      &_prev {
-         left: 0;
-         rotate: 180deg;
-         transform: translateY(50%);
-      }
-      &_next {
-         right: 0;
-         transform: translateY(-50%);
-      }
-   }
-   &__arrow {
-      width: 40px;
-      height: 50px;
-      fill: rgb(var(--color-light));
-   }
-   @media (any-hover: hover) {
-      &__navigation:hover {
-         .banner__arrow {
-            fill: rgb(var(--color-primary));
-         }
-      }
-   }
 }
