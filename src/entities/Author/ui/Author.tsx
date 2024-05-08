@@ -1,16 +1,16 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
 
-import styles from './BookAuthor.module.scss';
 import ArrowIcon from '../assets/arrow-icon.svg?react';
+import authorImage from '../assets/author-image.png';
 
-import authorImage from './../assets/author-image.png';
+import styles from './Author.module.scss';
 
 interface IProps {
    author: string;
 }
 
-export const BookAuthor: FC<IProps> = ({ author }) => {
+export const Author: FC<IProps> = ({ author }) => {
    const searchValue = author.split(' ')[1];
 
    return (

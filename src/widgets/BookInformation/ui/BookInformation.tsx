@@ -2,9 +2,9 @@ import { FC } from 'react';
 
 import { useAppSelector } from 'shared/lib/hooks';
 import { clientTypeSelector } from 'shared/model/selectors';
-import { BookDetails, bookDetails } from 'entities/BookDetails';
-import { BookAuthor } from 'entities/BookAuthor';
-import { BookDescription } from 'entities/BookDescription';
+import { BookDetails, bookDetails } from 'entities/book/BookDetails';
+import { BookAuthor } from 'entities/Author';
+import { BookDescription } from 'entities/book/BookDescription';
 
 import styles from './BookInformation.module.scss';
 

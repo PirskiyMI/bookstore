@@ -1,11 +1,13 @@
-import { FC } from 'react'
-import styles from './AboutUsPage.module.scss'
-import { AboutInfo } from 'widgets/AboutInfo'
+import { FC } from 'react';
 
-export const AboutUsPage:FC = () => {
-  return (
-    <div className={styles.aboutUsPage}>
-      <AboutInfo />
-    </div>
-  )
-}
+import { OurTeam } from 'widgets/OurTeam';
+
+import styles from './AboutUsPage.module.scss';
+
+export const AboutUsPage: FC = () => {
+   return (
+      <div className={styles.aboutUsPage}>
+         <OurTeam />
+      </div>
+   );
+};
