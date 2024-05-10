@@ -4,6 +4,7 @@ import { Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/scss';
 
+import { Preloader } from 'shared/ui/Preloader';
 import { Title } from 'shared/ui/Title';
 import { MyButton } from 'shared/ui/MyButton';
 import { SliderController } from 'shared/ui/SliderController';
@@ -53,7 +54,12 @@ export const Slider: FC<IProps> = ({ title, path }) => {
       },
    };
 
-   if (isLoading) return <section>Loading...</section>;
+   if (isLoading)
+      return (
+         <section className={styles.preloader}>
+            <Preloader />
+         </section>
+      );
    if (isError) return <section>Some error</section>;
 
    return (

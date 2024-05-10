@@ -1,4 +1,4 @@
-import { IDeveloper } from 'entities/DeveloperCard';
+import { IDeveloper } from 'entities/Developer';
 
 import GithubIcon from 'shared/assets/icons/github.svg?react';
 import TelegramIcon from 'shared/assets/icons/telegram.svg?react';

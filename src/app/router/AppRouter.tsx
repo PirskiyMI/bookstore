@@ -1,3 +1,4 @@
+import { lazy } from 'react';
 import {
    Route,
    RouterProvider,
@@ -6,10 +7,23 @@ import {
 } from 'react-router-dom';
 
 import { Routes } from 'shared/constants';
-import { MainPage } from 'pages/main-page';
-import { DetailsPage } from 'pages/DetailsPage';
-import { AboutUsPage } from 'pages/AboutUsPage';
-import { CartPage } from 'pages/CartPage';
+
+const CartPage = lazy(async () => {
+   const { CartPage } = await import('pages/CartPage');
+   return { default: CartPage };
+});
+const DetailsPage = lazy(async () => {
+   const { DetailsPage } = await import('pages/DetailsPage');
+   return { default: DetailsPage };
+});
+const MainPage = lazy(async () => {
+   const { MainPage } = await import('pages/main-page');
+   return { default: MainPage };
+});
+const AboutUsPage = lazy(async () => {
+   const { AboutUsPage } = await import('pages/AboutUsPage');
+   return { default: AboutUsPage };
+});
 
 import { AppLayout } from '../layout';
 

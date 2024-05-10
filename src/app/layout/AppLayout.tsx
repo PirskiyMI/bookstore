@@ -1,11 +1,14 @@
-import { FC, useLayoutEffect } from 'react';
+import { FC, Suspense, useLayoutEffect } from 'react';
 import { Outlet } from 'react-router-dom';
 
+import { Preloader } from 'shared/ui/Preloader';
 import { useAppDispatch } from 'shared/lib/hooks';
 import { clientTypeActions } from 'shared/model/slices';
 import { TheFooter } from 'widgets/TheFooter';
 import { TheHeader } from 'widgets/TheHeader';
 import { NavMenu } from 'widgets/NavMenu';
+
+import styles from './AppLayout.module.scss';
 
 export const AppLayout: FC = () => {
    const { setClientType } = clientTypeActions;
@@ -16,11 +19,18 @@ export const AppLayout: FC = () => {
    }, [dispatch, setClientType]);
 
    return (
-      <div>
+      <div className={styles.layout}>
          <TheHeader />
          <NavMenu />
-         <main>
-            <Outlet />
+         <main className={styles.layout__main}>
+            <Suspense
+               fallback={
+                  <div className={styles.layout__preloader}>
+                     <Preloader />
+                  </div>
+               }>
+               <Outlet />
+            </Suspense>
          </main>
          <TheFooter />
       </div>
