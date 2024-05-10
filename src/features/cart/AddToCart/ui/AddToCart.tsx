@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { toast } from 'react-toastify';
 
 import { useAppDispatch } from 'shared/lib/hooks';
 import { MyButton } from 'shared/ui/MyButton';
@@ -16,7 +17,10 @@ export const AddToCart: FC<IProps> = (props) => {
    const { addToCart } = cartActions;
    const dispatch = useAppDispatch();
 
-   const handleAddToCart = () => dispatch(addToCart(props));
+   const handleAddToCart = () => {
+      dispatch(addToCart(props));
+      toast.success('Book added to cart!')
+   };
 
    return (
       <MyButton

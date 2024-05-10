@@ -1,5 +1,7 @@
 import { FC, Suspense, useLayoutEffect } from 'react';
 import { Outlet } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { Preloader } from 'shared/ui/Preloader';
 import { useAppDispatch } from 'shared/lib/hooks';
@@ -32,6 +34,13 @@ export const AppLayout: FC = () => {
                <Outlet />
             </Suspense>
          </main>
+         <ToastContainer
+            position="bottom-right"
+            hideProgressBar={true}
+            autoClose={3000}
+            theme="colored"
+            newestOnTop
+         />
          <TheFooter />
       </div>
    );
