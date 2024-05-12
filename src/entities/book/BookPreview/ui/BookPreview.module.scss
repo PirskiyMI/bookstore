@@ -1,10 +1,28 @@
 .bookPreview {
    width: 238px;
+   height: 100%;
    position: relative;
    overflow: hidden;
+   &_free::before {
+      content: 'FREE';
+      padding: 10px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      font-size: var(--font-s-title-default);
+      font-weight: var(--font-w-bold);
+      color: rgb(var(--color-light));
+      background-color: rgb(var(--color-accent));
+   }
    &__image {
       max-width: 238px;
    }
+   &__body {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+   }
+
    &__title,
    &__subtitle {
       width: 100%;
