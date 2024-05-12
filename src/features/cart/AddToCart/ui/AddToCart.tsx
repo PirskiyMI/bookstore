@@ -1,9 +1,9 @@
 import { FC } from 'react';
 
-import { useAppDispatch } from 'shared/lib/hooks';
+import { useAppDispatch, useAppSelector } from 'shared/lib/hooks';
 import { MyButton } from 'shared/ui/MyButton';
 import CartIcon from 'shared/assets/icons/cart-icon.svg?react';
-import { cartActions } from 'entities/Cart';
+import { cartActions, isBookInCartSelector } from 'entities/Cart';
 
 import styles from './AddToCart.module.scss';
 
@@ -14,9 +14,12 @@ interface IProps {
 
 export const AddToCart: FC<IProps> = (props) => {
    const { addToCart } = cartActions;
+   const inCart = useAppSelector((state) => isBookInCartSelector(state, props.ISBN13));
    const dispatch = useAppDispatch();
 
    const handleAddToCart = () => dispatch(addToCart(props));
+
+   if (inCart) return <MyButton className={styles.button_added}>Added to cart</MyButton>;
 
    return (
       <MyButton

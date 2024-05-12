@@ -11,6 +11,16 @@
       height: 18px;
       fill: rgba(var(--color-gray), 0.6);
    }
+   &_added {
+      color: rgb(var(--color-light));
+      background-color: rgb(var(--color-primary));
+      border-color: transparent;
+      @media (any-hover: hover) {
+         &:hover {
+            color: rgb(var(--color-light));
+         }
+      }
+   }
    @media (any-hover: hover) {
       &:hover {
          .button__icon {

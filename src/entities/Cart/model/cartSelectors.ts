@@ -30,3 +30,8 @@ export const cartTotalCountSelector = createSelector([cartSelector], (selector) 
 
    return totalCount;
 });
+
+export const isBookInCartSelector = createSelector(
+   [cartSelector, (_cartSelector, id: string) => id],
+   (selector, id) => !!selector[id],
+);

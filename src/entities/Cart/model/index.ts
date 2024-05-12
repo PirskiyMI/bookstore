@@ -5,4 +5,5 @@ export {
    cartItemCountSelector,
    cartListSelector,
    cartTotalCountSelector,
+   isBookInCartSelector,
 } from './cartSelectors';
