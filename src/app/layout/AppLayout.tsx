@@ -4,6 +4,7 @@ import { Outlet } from 'react-router-dom';
 import { Preloader } from 'shared/ui/Preloader';
 import { useAppDispatch } from 'shared/lib/hooks';
 import { clientTypeActions } from 'shared/model/slices';
+import { ThemeToggler } from 'features/ThemeToggler';
 import { TheFooter } from 'widgets/TheFooter';
 import { TheHeader } from 'widgets/TheHeader';
 import { NavMenu } from 'widgets/NavMenu';
@@ -32,6 +33,9 @@ export const AppLayout: FC = () => {
                <Outlet />
             </Suspense>
          </main>
+         <div className={styles.layout__theme}>
+            <ThemeToggler />
+         </div>
          <TheFooter />
       </div>
    );

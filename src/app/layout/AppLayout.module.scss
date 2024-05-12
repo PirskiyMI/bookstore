@@ -11,4 +11,9 @@
       align-items: center;
       justify-content: center;
    }
+   &__theme {
+      position: fixed;
+      bottom: 40px;
+      right: 40px;
+   }
 }

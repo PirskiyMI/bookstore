@@ -1,0 +1,14 @@
+.themeToggler {
+   width: 50px;
+   height: 50px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   background-color: rgb(var(--color-primary));
+   border-radius: 50%;
+   &__icon {
+      width: 30px;
+      height: 30px;
+      fill: rgb(var(--color-light));
+   }
+}
