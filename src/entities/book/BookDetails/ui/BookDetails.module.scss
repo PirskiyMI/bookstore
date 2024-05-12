@@ -2,7 +2,6 @@
    display: flex;
    align-items: start;
    gap: 40px;
-   color: rgb(var(--color-gray), 0.9);
    &__image {
       height: 400px;
    }
@@ -35,7 +34,7 @@
       padding: 15px 30px;
       align-self: start;
       font-size: 20px;
-      border: 1px solid rgb(var(--color-gray), 0.2);
+      border: 1px solid var(--border-color);
       border-radius: var(--radius-default);
    }
    &__value {

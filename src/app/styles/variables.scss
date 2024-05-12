@@ -24,3 +24,17 @@
 
    --radius-default: 6px;
 }
+
+body[data-theme='light'] {
+   --text-color: rgba(var(--color-gray), 0.8);
+   --border-color: rgba(var(--color-gray), 0.4);
+   --background-color: rgb(var(--color-light));
+   --background-navigation-color: rgba(var(--color-gray), 0.06);
+}
+
+body[data-theme='dark'] {
+   --text-color: rgba(var(--color-light), 0.8);
+   --border-color: rgba(var(--color-light), 0.4);
+   --background-color: rgb(var(--color-dark));
+   --background-navigation-color: rgb(var(--color-gray), 0.2);
+}

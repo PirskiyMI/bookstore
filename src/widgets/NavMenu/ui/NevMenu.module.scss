@@ -1,6 +1,6 @@
 .nav {
    padding: 20px 0;
-   background-color: rgba(var(--color-gray), 0.06);
+   background-color: var(--background-navigation-color);
    @media (width <=1024px) {
       height: 0px;
       padding: 0px;

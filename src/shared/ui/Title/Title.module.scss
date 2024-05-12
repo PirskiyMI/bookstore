@@ -14,9 +14,10 @@
    &::before {
       width: 70px;
       background-color: rgb(var(--color-accent));
+      z-index: 1;
    }
    &::after {
       width: 170px;
-      background-color: rgba(var(--color-gray), 0.2);
+      background-color: var(--border-color);
    }
 }

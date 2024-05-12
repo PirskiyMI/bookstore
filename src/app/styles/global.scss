@@ -8,6 +8,8 @@ body {
    font-size: var(--font-s-text-default);
    font-weight: var(--font-w-default);
    line-height: var(--line-h-default);
+   color: var(--text-color);
+   background-color: var(--background-color);
    overflow-x: hidden;
    &::-webkit-scrollbar {
       display: none;

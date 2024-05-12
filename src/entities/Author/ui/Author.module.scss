@@ -30,14 +30,13 @@
    }
    &__link {
       align-self: center;
-      color: rgba(var(--color-gray), 0.6);
       font-weight: var(--font-w-bold);
       transition: color ease-in-out 0.2s;
    }
    &__arrow {
       width: 24px;
       height: 100%;
-      stroke: rgba(var(--color-gray), 0.6);
+      stroke: var(--text-color);
       transition: stroke ease-in-out 0.2s;
    }
    @media (any-hover: hover) {

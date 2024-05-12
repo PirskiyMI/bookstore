@@ -2,18 +2,17 @@ import { FC, Suspense, useLayoutEffect } from 'react';
 import { Outlet } from 'react-router-dom';
 
 import { Preloader } from 'shared/ui/Preloader';
-import { useAppDispatch } from 'shared/lib/hooks';
+import { useAppDispatch, useAppSelector } from 'shared/lib/hooks';
 import { clientTypeActions } from 'shared/model/slices';
-import { ThemeToggler } from 'features/ThemeToggler';
+import { ThemeToggler, themeSelector } from 'features/ThemeToggler';
 import { TheFooter } from 'widgets/TheFooter';
 import { TheHeader } from 'widgets/TheHeader';
 import { NavMenu } from 'widgets/NavMenu';
 
 import styles from './AppLayout.module.scss';
-import { useTheme } from 'features/ThemeToggler/lib/hooks/useTheme';
 
 export const AppLayout: FC = () => {
-   const { theme } = useTheme();
+   const theme = useAppSelector(themeSelector);
    const { setClientType } = clientTypeActions;
    const dispatch = useAppDispatch();
 

@@ -5,7 +5,7 @@
    &__icon {
       width: 30px;
       height: 30px;
-      fill: rgba(var(--color-gray), 0.6);
+      fill: var(--text-color);
       transition: fill ease-in-out 0.2s;
    }
    &__count {

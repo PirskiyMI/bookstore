@@ -6,7 +6,6 @@
       display: flex;
       flex-direction: column;
       gap: 10px;
-      color: rgb(var(--color-gray));
    }
    &__link {
       padding: 10px 14px;
@@ -14,9 +13,9 @@
       align-self: start;
       align-items: center;
       justify-content: center;
-      border: 1px solid rgba(var(--color-gray), 0.4);
+      border: 1px solid var(--border-color);
       border-radius: var(--radius-default);
-      transition: all ease-in-out .2s;
+      transition: all ease-in-out 0.2s;
    }
    @media (any-hover: hover) {
       &__link:hover {

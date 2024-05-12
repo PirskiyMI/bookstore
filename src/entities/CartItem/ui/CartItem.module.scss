@@ -18,7 +18,7 @@
    }
    &__preview {
       flex: 1 1 auto;
-      color: rgba(var(--color-gray), 0.8);
+      color: var(--text-color);
       cursor: pointer;
    }
    &__body {

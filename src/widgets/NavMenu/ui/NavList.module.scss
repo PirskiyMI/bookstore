@@ -1,9 +1,6 @@
 .list {
    display: flex;
    gap: 40px;
-   &__item {
-      color: rgba(var(--color-gray), 0.6);
-   }
    &__link {
       padding-bottom: 10px;
       position: relative;
