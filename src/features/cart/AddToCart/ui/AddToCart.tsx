@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { toast } from 'react-toastify';
 
 import { useAppDispatch, useAppSelector } from 'shared/lib/hooks';
 import { MyButton } from 'shared/ui/MyButton';
@@ -17,7 +18,10 @@ export const AddToCart: FC<IProps> = (props) => {
    const inCart = useAppSelector((state) => isBookInCartSelector(state, props.ISBN13));
    const dispatch = useAppDispatch();
 
-   const handleAddToCart = () => dispatch(addToCart(props));
+   const handleAddToCart = () => {
+      dispatch(addToCart(props));
+      toast.success('Book added to cart!')
+   };
 
    if (inCart) return <MyButton className={styles.button_added}>Added to cart</MyButton>;
 
