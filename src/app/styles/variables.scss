@@ -2,6 +2,8 @@
    --color-dark: 15, 15, 15;
    --color-gray: 96, 96, 96;
    --color-light: 255, 255, 255;
+   --color-light-gray: 246, 246, 246;
+   --color-dark-gray: 31, 31, 31;
    --color-primary: 8, 160, 233;
    --color-secondary: 232, 245, 253;
    --color-accent: 203, 14, 78;
@@ -29,12 +31,12 @@ body[data-theme='light'] {
    --text-color: rgba(var(--color-gray), 0.8);
    --border-color: rgba(var(--color-gray), 0.4);
    --background-color: rgb(var(--color-light));
-   --background-navigation-color: rgba(var(--color-gray), 0.06);
+   --background-navigation-color: rgb(var(--color-light-gray));
 }
 
 body[data-theme='dark'] {
    --text-color: rgba(var(--color-light), 0.8);
    --border-color: rgba(var(--color-light), 0.4);
    --background-color: rgb(var(--color-dark));
-   --background-navigation-color: rgb(var(--color-gray), 0.2);
+   --background-navigation-color: rgb(var(--color-dark-gray));
 }

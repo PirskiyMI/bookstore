@@ -29,7 +29,9 @@ export const AppLayout: FC = () => {
    return (
       <div className={styles.layout}>
          <TheHeader />
-         <NavMenu />
+         <div className={styles.layout__navigation}>
+            <NavMenu />
+         </div>
          <main className={styles.layout__main}>
             <Suspense
                fallback={
