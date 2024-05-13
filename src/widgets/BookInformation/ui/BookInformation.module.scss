@@ -5,6 +5,9 @@
       display: flex;
       gap: 40px;
    }
+   &__header {
+      justify-content: space-between;
+   }
    &__authors {
       padding: 20px;
       align-self: start;
