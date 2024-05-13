@@ -24,12 +24,16 @@ const AboutUsPage = lazy(async () => {
    const { AboutUsPage } = await import('pages/AboutUsPage');
    return { default: AboutUsPage };
 });
+const ErrorPage = lazy(async () => {
+   const { ErrorPage } = await import('pages/ErrorPage');
+   return { default: ErrorPage };
+});
 
 import { AppLayout } from '../layout';
 
 export const AppRouter = () => {
    const routes = createRoutesFromElements(
-      <Route path={Routes.MAIN_PAGE} element={<AppLayout />}>
+      <Route path={Routes.MAIN_PAGE} element={<AppLayout />} errorElement={<ErrorPage />}>
          <Route index element={<MainPage />} />
          <Route path={Routes.DETAILS_PAGE} element={<DetailsPage />} />
          <Route path={Routes.ABOUT_US_PAGE} element={<AboutUsPage />} />
