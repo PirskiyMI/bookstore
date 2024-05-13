@@ -40,7 +40,7 @@
             left: 50%;
             color: var(--text-color);
             transform: translateX(-50%) translateY(calc(100%));
-            z-index: 10;
+            z-index: 1000;
          }
       }
    }
