@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { IBookDescription } from 'entities/BookDescription';
-import { IBookDetails, IPublicationInformation } from 'entities/BookDetails';
+import { IBookDescription } from 'entities/book/BookDescription';
+import { IBookDetails, IPublicationInformation } from 'entities/book/BookDetails';
 
 import { fetchBookInformation } from './bookInformationThunks';
 
