@@ -1,4 +1,5 @@
 .cartButton {
+   position: relative;
    &__wrapper {
       position: relative;
    }
@@ -23,10 +24,23 @@
       background-color: rgb(var(--color-accent));
       border-radius: var(--radius-default);
    }
+   &__dropdown {
+      display: none;
+   }
    @media (any-hover: hover) {
       &:hover {
          .cartButton__icon {
             fill: rgb(var(--color-primary));
+         }
+         .cartButton__dropdown {
+            padding-top: 20px;
+            display: block;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            color: var(--text-color);
+            transform: translateX(-50%) translateY(calc(100%));
+            z-index: 10;
          }
       }
    }

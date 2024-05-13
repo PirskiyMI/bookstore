@@ -35,3 +35,7 @@ export const isBookInCartSelector = createSelector(
    [cartSelector, (_cartSelector, id: string) => id],
    (selector, id) => !!selector[id],
 );
+
+export const cartPreviewListSelector = createSelector([cartSelector], (selector) =>
+   Object.entries(selector),
+);
