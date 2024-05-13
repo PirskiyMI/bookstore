@@ -15,6 +15,9 @@
       color: rgb(var(--color-light));
       background-color: rgb(var(--color-primary));
       border-color: transparent;
+      .button__icon {
+         fill: rgb(var(--color-light));
+      }
       @media (any-hover: hover) {
          &:hover {
             color: rgb(var(--color-light));

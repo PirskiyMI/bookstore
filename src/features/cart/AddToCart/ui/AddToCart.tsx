@@ -20,10 +20,18 @@ export const AddToCart: FC<IProps> = (props) => {
 
    const handleAddToCart = () => {
       dispatch(addToCart(props));
-      toast.success('Book added to cart!')
+      toast.success('Book added to cart!');
    };
 
-   if (inCart) return <MyButton className={styles.button_added}>Added to cart</MyButton>;
+   if (inCart)
+      return (
+         <MyButton className={styles.button_added}>
+            <div className={styles.button__wrapper}>
+               <CartIcon className={styles.button__icon} />
+               <span>Added to cart</span>
+            </div>
+         </MyButton>
+      );
 
    return (
       <MyButton
