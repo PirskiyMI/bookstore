@@ -32,6 +32,7 @@ body[data-theme='light'] {
    --border-color: rgba(var(--color-gray), 0.4);
    --background-color: rgb(var(--color-light));
    --background-navigation-color: rgb(var(--color-light-gray));
+   --swiper-pagination-background-color: rgb(var(--color-dark));
 }
 
 body[data-theme='dark'] {
@@ -39,4 +40,5 @@ body[data-theme='dark'] {
    --border-color: rgba(var(--color-light), 0.4);
    --background-color: rgb(var(--color-dark));
    --background-navigation-color: rgb(var(--color-dark-gray));
+   --swiper-pagination-background-color: rgb(var(--color-light));
 }

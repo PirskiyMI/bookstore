@@ -17,7 +17,7 @@ export const CartPreview: FC = () => {
    const cartPreviewList = (
       <ul className={styles.cartList}>
          {previewList.map(([ISBN13, el]) => (
-            <li className={styles.cartList__item}>
+            <li key={ISBN13} className={styles.cartList__item}>
                <NavLink to={`/books/${ISBN13}`}>
                   <CartPreviewItem {...el} />
                </NavLink>

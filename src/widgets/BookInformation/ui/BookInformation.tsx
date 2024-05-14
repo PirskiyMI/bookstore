@@ -1,4 +1,8 @@
 import { FC, useEffect } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination } from 'swiper/modules';
+import 'swiper/scss';
+import 'swiper/scss/pagination';
 
 import { Fallback } from 'shared/ui/Fallback';
 import { Preloader } from 'shared/ui/Preloader';
@@ -65,9 +69,19 @@ export const BookInformation: FC<IProps> = ({ ISBN13 }) => {
                }
             />
             {clientType === 'desktop' && (
-               <div className={styles.information__authors}>
-                  <Author author={bookDetails.authors} />
-               </div>
+               <Swiper
+                  modules={[Pagination]}
+                  slidesPerView={1}
+                  spaceBetween={20}
+                  grabCursor
+                  pagination={{ clickable: true }}
+                  className={styles.information__authors}>
+                  {bookDetails.authors.split(', ').map((el) => (
+                     <SwiperSlide key={el}>
+                        <Author author={el} />
+                     </SwiperSlide>
+                  ))}
+               </Swiper>
             )}
          </div>
          <BookDescription {...bookDescription} />

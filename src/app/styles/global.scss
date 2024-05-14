@@ -12,7 +12,12 @@ body {
    background-color: var(--background-color);
    overflow-x: hidden;
    &::-webkit-scrollbar {
-      display: none;
+      width: 8px;
+      cursor: pointer;
+   }
+   &::-webkit-scrollbar-thumb {
+      border-radius: var(--radius-default);
+      background: rgb(var(--color-primary));
    }
 }
 
@@ -32,4 +37,10 @@ body {
    max-width: 1232px;
    margin: 0 auto;
    padding: 0 16px;
+}
+.swiper-pagination-bullet {
+   background: var(--swiper-pagination-background-color);
+}
+.swiper-pagination-bullet-active {
+   background: rgb(var(--color-primary));
 }
