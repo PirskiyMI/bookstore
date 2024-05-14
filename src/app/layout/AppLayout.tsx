@@ -35,7 +35,7 @@ export const AppLayout: FC = () => {
          <main className={styles.layout__main}>
             <Suspense
                fallback={
-                  <div className={styles.layout__preloader}>
+                  <div className={'preloader'}>
                      <Preloader />
                   </div>
                }>
