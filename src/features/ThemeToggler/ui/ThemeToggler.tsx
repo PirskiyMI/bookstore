@@ -16,7 +16,6 @@ export const ThemeToggler: FC = () => {
 
    const toggleTheme = useCallback(() => {
       const newTheme = theme === 'light' ? 'dark' : 'light';
-      localStorage.setItem('theme', newTheme);
       dispatch(setTheme(newTheme));
    }, [dispatch, setTheme, theme]);
 

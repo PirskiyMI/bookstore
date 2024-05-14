@@ -1,1 +1,1 @@
-export { store } from './appStore';
+export { store, persistor } from './appStore';
