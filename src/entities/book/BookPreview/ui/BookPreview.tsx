@@ -35,7 +35,7 @@ export const BookPreview: FC<IProps> = ({
             </div>
          </div>
          <div className={styles.bookPreview__popup}>
-            <Link to={`/books/${ISBN13}`}>
+            <Link to={`/books/${ISBN13}`} state={{ title }}>
                <p className={styles.bookPreview__price}>${price}</p>
                <div>
                   <h4 className={styles.bookPreview__title}>{title}</h4>

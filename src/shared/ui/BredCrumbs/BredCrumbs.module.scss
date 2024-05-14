@@ -18,6 +18,8 @@
       }
    }
    &__link {
+      text-transform: capitalize;
+      cursor: pointer;
       &:hover {
          color: rgb(var(--color-primary));
       }
