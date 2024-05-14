@@ -12,6 +12,7 @@ import { AboutUsPage } from 'pages/AboutUsPage';
 import { CartPage } from 'pages/CartPage';
 
 import { AppLayout } from '../layout';
+import { SearchPage } from 'pages/SearchPage';
 
 export const AppRouter = () => {
    const routes = createRoutesFromElements(
@@ -20,6 +21,7 @@ export const AppRouter = () => {
          <Route path={Routes.DETAILS_PAGE} element={<DetailsPage />} />
          <Route path={Routes.ABOUT_US_PAGE} element={<AboutUsPage />} />
          <Route path={Routes.CART_PAGE} element={<CartPage />} />
+         <Route path={Routes.SEARCH_PAGE} element={<SearchPage />} />
       </Route>,
    );
 
