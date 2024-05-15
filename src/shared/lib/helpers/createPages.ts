@@ -20,6 +20,7 @@ export const createPages = ({ pages, currentPage, totalPage }: IArguments) => {
    } else {
       for (let i = 1; i <= 6; i++) {
          pages.push(i);
+         if (i === totalPage) break;
       }
    }
 };

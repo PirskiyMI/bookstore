@@ -13,14 +13,14 @@ import { searchDataSelector, searchLoadingSelector } from '../model/searchBookSe
 import styles from './SearchList.module.scss';
 
 export const SearchList: FC = () => {
-   const { value } = useParams;
+   const { value } = useParams();
    const [currentPage, setCurrentPage] = useState<number>(1);
    const isLoading = useAppSelector(searchLoadingSelector);
    const searchData = useAppSelector(searchDataSelector);
    const dispatch = useAppDispatch();
 
    useEffect(() => {
-      dispatch(fetchBooksBySearch({ value, page: currentPage }));
+      if (value) dispatch(fetchBooksBySearch({ value, page: currentPage }));
    }, [dispatch, currentPage, value]);
 
    if (!searchData) return <section className={styles.searchList}></section>;
@@ -51,13 +51,15 @@ export const SearchList: FC = () => {
                </li>
             ))}
          </ul>
-         <div className={styles.searchList__pagination}>
-            <Pagination
-               totalPage={totalPage}
-               currentPage={currentPage}
-               setCurrentPage={setCurrentPage}
-            />
-         </div>
+         {totalPage > 1 && (
+            <div className={styles.searchList__pagination}>
+               <Pagination
+                  totalPage={totalPage}
+                  currentPage={currentPage}
+                  setCurrentPage={setCurrentPage}
+               />
+            </div>
+         )}
       </section>
    );
 };

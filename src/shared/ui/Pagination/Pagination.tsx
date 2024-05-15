@@ -19,13 +19,16 @@ export const Pagination: FC<IProps> = ({ totalPage, currentPage, setCurrentPage 
    const toNextPage = () => setCurrentPage((prev) => (prev += 1));
    const toPrevPage = () => setCurrentPage((prev) => (prev -= 1));
 
+   const isFirstPage = currentPage > 4 && totalPage > 5;
+   const isLastPage = currentPage < totalPage - 2 && totalPage > 5;
+
    return (
       <div className={styles.pagination}>
          <button onClick={toPrevPage} className={styles.pagination__item}>
             Previous
          </button>
          <ul className={styles.pagination__list}>
-            {currentPage > 4 && (
+            {isFirstPage && (
                <>
                   <li>
                      <button onClick={toFirstPage} className={styles.pagination__item}>
@@ -50,7 +53,7 @@ export const Pagination: FC<IProps> = ({ totalPage, currentPage, setCurrentPage 
                );
             })}
 
-            {currentPage < totalPage - 2 && (
+            {isLastPage && (
                <>
                   <li>...</li>
                   <li>

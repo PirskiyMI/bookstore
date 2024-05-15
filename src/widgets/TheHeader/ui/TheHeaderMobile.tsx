@@ -2,18 +2,17 @@ import { FC, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import { Routes } from 'shared/constants';
-import { useAppDispatch, useInput, useIsOpen } from 'shared/lib/hooks';
+import { useAppDispatch, useIsOpen } from 'shared/lib/hooks';
 import { navMenuActions } from 'shared/model/slices';
 import { Burger } from 'shared/ui/Burger';
 import { Logo } from 'shared/ui/Logo';
 import { MyButton } from 'shared/ui/MyButton';
-import { MyField } from 'shared/ui/MyField';
+import { SearchForm } from 'features/SearchForm';
 
 import styles from './TheHeaderMobile.module.scss';
 
 export const TheHeaderMobile: FC = () => {
    const { isOpen, handleOpen, handleClose } = useIsOpen();
-   const { value, changeHandler } = useInput();
    const { setIsNavMenuOpen } = navMenuActions;
    const dispatch = useAppDispatch();
 
@@ -36,12 +35,7 @@ export const TheHeaderMobile: FC = () => {
                <Burger isOpen={isOpen} setOpen={isOpen ? handleClose : handleOpen} />
             </div>
             <div className={styles.header__search}>
-               <MyField
-                  placeholder="Поиск..."
-                  value={value}
-                  onChange={changeHandler}
-                  className={styles.header__field}
-               />
+               <SearchForm />
             </div>
          </div>
       </div>
