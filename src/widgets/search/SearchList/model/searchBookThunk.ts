@@ -17,21 +17,23 @@ interface IResponse {
    }[];
 }
 
-export const fetchBooksBySearch = createAsyncThunk<IState['data'], string, { rejectValue: string }>(
-   'searchBook/fetchBooksBySearch',
-   async (value, { rejectWithValue }) => {
-      try {
-         const result = await axiosRequest.get<IResponse>(`search/${value}`).then((res) => {
-            const { books, page } = res.data;
+export const fetchBooksBySearch = createAsyncThunk<
+   IState['data'],
+   { value: string; page: number },
+   { rejectValue: string }
+>('searchBook/fetchBooksBySearch', async ({ value, page }, { rejectWithValue }) => {
+   try {
+      const result = await axiosRequest.get<IResponse>(`search/${value}/${page}`).then((res) => {
+         const { books, total } = res.data;
 
-            const bookList = books.map(({ isbn13, ...el }) => ({ ISBN13: isbn13, ...el }));
+         const totalPage = Math.ceil(+total / 10);
+         const bookList = books.map(({ isbn13, ...el }) => ({ ISBN13: isbn13, ...el }));
 
-            return { bookList, totalPage: page };
-         });
+         return { bookList, totalPage };
+      });
 
-         return result;
-      } catch {
-         return rejectWithValue('ошибка поиска книг');
-      }
-   },
-);
+      return result;
+   } catch {
+      return rejectWithValue('ошибка поиска книг');
+   }
+});

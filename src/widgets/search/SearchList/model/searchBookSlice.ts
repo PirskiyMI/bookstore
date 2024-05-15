@@ -7,16 +7,16 @@ import { fetchBooksBySearch } from './searchBookThunk';
 export interface IState {
    data: {
       bookList: IBookPreview[];
-      totalPage: string;
+      totalPage: number;
    } | null;
    isLoading: boolean;
-   error: string;
+   error: string | null;
 }
 
 const initialState: IState = {
    data: null,
    isLoading: false,
-   error: '',
+   error: null,
 };
 
 const searchBookSlice = createSlice({
