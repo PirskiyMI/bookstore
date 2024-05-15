@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { NavLink } from 'react-router-dom';
 
 import { MyButton } from 'shared/ui/MyButton/MyButton';
 import { useAppSelector } from 'shared/lib/hooks';
@@ -8,7 +9,6 @@ import { cartPreviewListSelector } from './../../model/cartSelectors';
 
 import styles from './CartPreview.module.scss';
 import { CartPreviewItem } from '../CartPreviewItem/CartPreviewItem';
-import { NavLink } from 'react-router-dom';
 
 export const CartPreview: FC = () => {
    const previewList = useAppSelector(cartPreviewListSelector);
@@ -25,6 +25,8 @@ export const CartPreview: FC = () => {
          ))}
       </ul>
    );
+
+   console.log(totalPrice);
 
    return (
       <div className={styles.cartPreview}>
