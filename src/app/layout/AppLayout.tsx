@@ -6,7 +6,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Preloader } from 'shared/ui/Preloader';
 import { useAppDispatch, useAppSelector } from 'shared/lib/hooks';
 import { clientTypeActions } from 'shared/model/slices';
-import { ThemeToggler, themeSelector } from 'features/ThemeToggler';
 import { TheFooter } from 'widgets/TheFooter';
 import { TheHeader } from 'widgets/TheHeader';
 import { NavMenu } from 'widgets/NavMenu';
