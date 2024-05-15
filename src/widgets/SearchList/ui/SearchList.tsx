@@ -2,10 +2,11 @@ import { FC, useEffect,  } from 'react'
 import { NavLink } from 'react-router-dom';
 
 import { useAppDispatch, useAppSelector } from 'shared/lib/hooks';
-import { ProductCard } from 'entities/ProductCard';
+import { BookPreview } from 'entities/book/BookPreview';
 
 import styles from './SearchList.module.scss'
 import { fetchBooksBySearch } from '../model/slices/searchBookThunk';
+
 
 
 
@@ -26,7 +27,7 @@ return (
             books.map((el) => (
                 <div key={el.ISBN13}>
                     <NavLink to={`/books/${el.ISBN13}`} >
-                        <ProductCard  {...el} />
+                        <BookPreview  {...el} />
                     </NavLink>
                 </div>
             ))

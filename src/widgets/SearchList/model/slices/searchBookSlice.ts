@@ -1,9 +1,8 @@
-import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import {IProductCard}  from 'entities/ProductCard';
+import { createSlice } from "@reduxjs/toolkit";
 import { fetchBooksBySearch } from "./searchBookThunk";
-
+import { IBookPreview } from 'entities/book/BookPreview';
 export interface IState {
-    books: IProductCard[];
+    books: IBookPreview[];
     isLoading: boolean,
     error: string,
 }
