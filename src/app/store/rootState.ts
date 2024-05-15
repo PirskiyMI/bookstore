@@ -5,8 +5,8 @@ import persistReducer from 'redux-persist/es/persistReducer';
 import { navMenuReducer } from 'shared/model/slices';
 import { clientTypeReducer } from 'shared/model/slices';
 import { cartReducer } from 'entities/Cart';
-import { searchBookReducer } from 'widgets/SearchList';
 import { themeReducer } from 'features/ThemeToggler';
+import { searchBookReducer } from 'widgets/search/SearchList';
 import { bookInformationReducer } from 'widgets/BookInformation';
 
 const rootReducer = combineReducers({

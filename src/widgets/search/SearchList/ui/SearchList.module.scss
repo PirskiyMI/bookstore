@@ -1,0 +1,7 @@
+.searchList {
+   display: grid;
+   justify-content: flex-start;
+   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+   grid-template-rows: repeat(auto);
+   gap: 30px;
+}
