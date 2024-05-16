@@ -3,6 +3,7 @@ import { Outlet } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+import { clientTypeSelector } from 'shared/model/selectors';
 import { Preloader } from 'shared/ui/Preloader';
 import { useAppDispatch, useAppSelector } from 'shared/lib/hooks';
 import { clientTypeActions } from 'shared/model/slices';
@@ -15,6 +16,7 @@ import styles from './AppLayout.module.scss';
 
 export const AppLayout: FC = () => {
    const theme = useAppSelector(themeSelector);
+   const clientType = useAppSelector(clientTypeSelector);
    const { setClientType } = clientTypeActions;
    const dispatch = useAppDispatch();
 
@@ -43,13 +45,13 @@ export const AppLayout: FC = () => {
             </Suspense>
          </main>
          <ToastContainer
-            position="bottom-right"
+            position={clientType === 'desktop' ? 'bottom-right' : 'top-center'}
             hideProgressBar={true}
-            autoClose={3000}
+            autoClose={1000}
             theme="colored"
             newestOnTop
          />
-         <div className={styles.layout__theme}>
+         <div className={styles.layout__switcher}>
             <ThemeToggler />
          </div>
          <TheFooter />
