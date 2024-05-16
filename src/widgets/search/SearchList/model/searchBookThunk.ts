@@ -27,7 +27,15 @@ export const fetchBooksBySearch = createAsyncThunk<
          const { books, total } = res.data;
 
          const totalPage = Math.ceil(+total / 10);
-         const bookList = books.map(({ isbn13, ...el }) => ({ ISBN13: isbn13, ...el }));
+         const bookList = books.map(({ isbn13, price, ...el }) => {
+            const formattedPrice = price.replace(/\$/g, '');
+
+            return {
+               ISBN13: isbn13,
+               price: formattedPrice,
+               ...el,
+            };
+         });
 
          return { bookList, totalPage };
       });
