@@ -16,9 +16,8 @@ export const Banner: FC = () => {
    return (
       <div className={styles.banner}>
          <Swiper
-            modules={[Navigation, Pagination, Autoplay]}
+            modules={[Navigation, Pagination]}
             slidesPerView={1}
-            autoplay={{ delay: 2500 }}
             navigation={false}
             pagination={{ clickable: true }}>
             {slides.map(({ imgURL, ISBN13, title}, index) => (

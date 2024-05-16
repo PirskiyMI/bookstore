@@ -2,12 +2,15 @@
    padding: 20px 0;
    background-color: var(--background-navigation-color);
    @media (width <=1024px) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
       height: 0px;
-      padding: 0px;
       overflow: hidden;
       transition: all ease-in-out 0.2s;
       &_active {
-         height: 510px;
+         height: 640px;
       }
    }
 }

@@ -10,7 +10,7 @@ import { SearchForm } from 'features/SearchForm';
 
 export const TheHeaderDesktop: FC = () => {
    return (
-      <div className={`${styles.header__container} container`}>
+      <div className={styles.header}>
          <Link to={Routes.MAIN_PAGE}>
             <Logo />
          </Link>

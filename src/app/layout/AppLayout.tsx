@@ -13,7 +13,6 @@ import { NavMenu } from 'widgets/NavMenu';
 
 import styles from './AppLayout.module.scss';
 
-
 export const AppLayout: FC = () => {
    const theme = useAppSelector(themeSelector);
    const { setClientType } = clientTypeActions;

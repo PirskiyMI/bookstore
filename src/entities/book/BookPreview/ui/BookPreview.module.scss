@@ -17,7 +17,8 @@
       background-color: rgb(var(--color-accent));
    }
    &__image {
-      max-width: 238px;
+      align-self: center;
+      width: 240px;
    }
    &__body {
       height: 100%;
@@ -49,7 +50,7 @@
    }
    &__button {
       margin-top: 10px;
-      align-self: flex-end;
+      align-self: flex-start;
    }
    @media (any-hover: hover) {
       &:hover {

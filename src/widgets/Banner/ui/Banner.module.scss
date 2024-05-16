@@ -9,6 +9,11 @@
       max-height: 430px;
    }
    &__img {
+      height: 100%;
+   }
+   &__link {
+      display: block;
+      max-height: 370px;
       object-fit: cover;
    }
    &__link{
