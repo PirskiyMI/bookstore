@@ -24,9 +24,12 @@ export const Pagination: FC<IProps> = ({ totalPage, currentPage, setCurrentPage 
 
    return (
       <div className={styles.pagination}>
-         <button onClick={toPrevPage} className={styles.pagination__item}>
-            Previous
-         </button>
+         {currentPage > 1 && (
+            <button onClick={toPrevPage} className={styles.pagination__item}>
+               Previous
+            </button>
+         )}
+
          <ul className={styles.pagination__list}>
             {isFirstPage && (
                <>
@@ -64,9 +67,11 @@ export const Pagination: FC<IProps> = ({ totalPage, currentPage, setCurrentPage 
                </>
             )}
          </ul>
-         <button onClick={toNextPage} className={styles.pagination__item}>
-            Next
-         </button>
+         {currentPage !== totalPage && (
+            <button onClick={toNextPage} className={styles.pagination__item}>
+               Next
+            </button>
+         )}
       </div>
    );
 };
