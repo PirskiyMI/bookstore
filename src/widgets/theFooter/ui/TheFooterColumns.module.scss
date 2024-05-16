@@ -8,9 +8,11 @@
       flex-wrap: nowrap;
       gap: 10px;
    }
-   &__item {
-      & a:hover {
-         color: rgb(var(--color-primary));
+   @media (any-hover: hover) {
+      &__item {
+         & a:hover {
+            color: rgb(var(--color-primary));
+         }
       }
    }
 }
