@@ -10,7 +10,7 @@ interface IProps {
 export const TheFooterColumns: FC<IProps> = ({ list, title }) => {
    return (
       <div className={style.footerColumns}>
-         <h5 className={style.footerColumns__title}>{title}</h5>
+         <h5 className={`${style.footerColumns__title} title`}>{title}</h5>
          <ul className={style.footerColumns__list}>
             {list.map(({ path, title }) => (
                <li key={title} className={style.footerColumns__item}>
