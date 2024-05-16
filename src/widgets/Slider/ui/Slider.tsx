@@ -40,6 +40,9 @@ export const Slider: FC<IProps> = ({ title }) => {
 
    const breakpoints = {
       320: {
+         slidesPerView: 1,
+      },
+      560: {
          slidesPerView: 2,
       },
       768: {
