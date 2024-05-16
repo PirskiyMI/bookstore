@@ -1,8 +1,10 @@
 import { Dispatch, FC, SetStateAction } from 'react';
 
+import { useAppSelector } from 'shared/lib/hooks';
 import { createPages } from 'shared/lib/helpers/createPages';
 
 import styles from './Pagination.module.scss';
+import { clientTypeSelector } from 'shared/model/selectors';
 
 interface IProps {
    totalPage: number;
@@ -11,6 +13,7 @@ interface IProps {
 }
 
 export const Pagination: FC<IProps> = ({ totalPage, currentPage, setCurrentPage }) => {
+   const clientType = useAppSelector(clientTypeSelector);
    const pages: number[] = [];
    createPages({ pages, currentPage, totalPage });
 
@@ -24,7 +27,7 @@ export const Pagination: FC<IProps> = ({ totalPage, currentPage, setCurrentPage 
 
    return (
       <div className={styles.pagination}>
-         {currentPage > 1 && (
+         {currentPage > 1 && clientType === 'desktop' && (
             <button onClick={toPrevPage} className={styles.pagination__item}>
                Previous
             </button>
@@ -67,10 +70,28 @@ export const Pagination: FC<IProps> = ({ totalPage, currentPage, setCurrentPage 
                </>
             )}
          </ul>
-         {currentPage !== totalPage && (
+
+         {currentPage !== totalPage && clientType === 'desktop' && (
             <button onClick={toNextPage} className={styles.pagination__item}>
                Next
             </button>
+         )}
+
+         {clientType === 'mobile' && (
+            <div className={styles.pagination__controllers}>
+               <button
+                  onClick={toPrevPage}
+                  disabled={currentPage === 1}
+                  className={styles.pagination__item}>
+                  Previous
+               </button>
+               <button
+                  onClick={toNextPage}
+                  disabled={currentPage === totalPage}
+                  className={styles.pagination__item}>
+                  Next
+               </button>
+            </div>
          )}
       </div>
    );
