@@ -6,9 +6,9 @@ import { useAppDispatch, useIsOpen } from 'shared/lib/hooks';
 import { navMenuActions } from 'shared/model/slices';
 import { Burger } from 'shared/ui/Burger';
 import { Logo } from 'shared/ui/Logo';
-import { MyButton } from 'shared/ui/MyButton';
 import { SearchForm } from 'features/SearchForm';
 
+import { TheHeaderCartButton } from './TheHeaderCartButton';
 import styles from './TheHeaderMobile.module.scss';
 
 export const TheHeaderMobile: FC = () => {
@@ -26,8 +26,8 @@ export const TheHeaderMobile: FC = () => {
             <Link to={Routes.MAIN_PAGE}>
                <Logo />
             </Link>
-            <div className={styles.header__cart}>
-               <MyButton className={styles.header__button}>Корзина</MyButton>
+            <div className={styles.header__button}>
+               <TheHeaderCartButton />
             </div>
          </div>
          <div className={styles.header__bottom}>
