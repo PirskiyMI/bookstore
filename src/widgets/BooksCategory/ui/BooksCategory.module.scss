@@ -1,0 +1,19 @@
+.booksCategory{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.list__link{
+    margin: 30px 0px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 50px;
+}
+.link__item{
+    font-size: var(--font-s-title-default);
+    &:hover {
+        color: rgb(var(--color-primary));
+    }
+}

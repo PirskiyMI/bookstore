@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom';
 
 import { Routes } from 'shared/constants';
+import { SearchPage } from 'pages/SearchPage';
 
 const CartPage = lazy(async () => {
    const { CartPage } = await import('pages/CartPage');
@@ -28,9 +29,13 @@ const ErrorPage = lazy(async () => {
    const { ErrorPage } = await import('pages/ErrorPage');
    return { default: ErrorPage };
 });
+const AllBooksPage = lazy(async () => {
+   const { AllBooksPage } = await import('pages/AllBooksPage');
+   return { default: AllBooksPage };
+});
 
 import { AppLayout } from '../layout';
-import { SearchPage } from 'pages/SearchPage';
+
 
 export const AppRouter = () => {
    const routes = createRoutesFromElements(
@@ -40,6 +45,7 @@ export const AppRouter = () => {
          <Route path={Routes.ABOUT_US_PAGE} element={<AboutUsPage />} />
          <Route path={Routes.CART_PAGE} element={<CartPage />} />
          <Route path={Routes.SEARCH_PAGE} element={<SearchPage />} />
+         <Route path={Routes.CATEGORY_PAGE} element={<AllBooksPage />} />
       </Route>,
    );
 

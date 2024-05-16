@@ -1,11 +1,7 @@
 .list {
    display: flex;
    gap: 40px;
-   &__link {
-      padding-bottom: 10px;
-      position: relative;
-      transition: color ease-in-out 0.2s;
-   }
+   
    &__link::after {
       content: '';
       position: absolute;
@@ -15,6 +11,17 @@
       height: 2px;
       background-color: rgb(var(--color-accent));
       transition: width ease-in-out 0.2s;
+   }
+   &__link {
+      padding-bottom: 10px;
+      position: relative;
+      transition: color ease-in-out 0.2s;
+      .list &_active{
+         color: rgb(var(--color-accent));
+      }
+      &_active::after{
+         width: 100%;
+      }
    }
    @media (any-hover: hover) {
       &__link:hover {
