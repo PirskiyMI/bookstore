@@ -43,7 +43,7 @@
          color: rgb(var(--color-primary));
       }
    }
-   @media (width <= 900px) {
+   @media (max-width: 900px) {
       flex-direction: column;
       align-items: start;
    }
