@@ -3,7 +3,7 @@ import { FC } from 'react';
 import { useAppSelector } from 'shared/lib/hooks';
 import { isNavMenuOpenSelector } from 'shared/model/selectors';
 
-import styles from './NevMenu.module.scss';
+import styles from './NavMenu.module.scss';
 import { NavList } from './NavList';
 
 export const NavMenu: FC = () => {
