@@ -1,36 +1,34 @@
-import { FC } from 'react'
-import { Link } from 'react-router-dom'
+import { FC } from 'react';
+import { Link } from 'react-router-dom';
 
-import { Title } from 'shared/ui/Title'
-import { category } from '../constants/category'
+import { Title } from 'shared/ui/Title';
 
-import styles from './BooksCategory.module.scss'
-import { Routes } from 'shared/constants'
+import { category } from '../constants/category';
+
+import styles from './BooksCategory.module.scss';
 
 export const BooksCategory: FC = () => {
+   const categoryList = Object.entries(category);
 
-  const categoryList = Object.entries(category)
-
-  return (
-    <div className={styles.booksCategory}>
-      {
-        categoryList.map(([title, categories]) => (
-          <div>
-            <Title>
-              {title}
-            </Title>
-            <div className={styles.list__link}>
-              {categories.map(el => {
-                const path = `${Routes.CATEGORY_PAGE}/${el}`
-                return <Link to={path} className={styles.link__item}>
-                  {el}
-                </Link>
-              }
-              )}
+   return (
+      <div className={styles.booksCategory}>
+         {categoryList.map(([title, categories]) => (
+            <div>
+               <Title>{title}</Title>
+               <ul className={styles.booksCategory__list}>
+                  {categories.map((el) => {
+                     const path = `/search/${el}`;
+                     return (
+                        <li key={el}>
+                           <Link to={path} className={styles.booksCategory__link}>
+                              {el}
+                           </Link>
+                        </li>
+                     );
+                  })}
+               </ul>
             </div>
-          </div>
-        ))
-      }
-    </div>
-  )
-}
+         ))}
+      </div>
+   );
+};

@@ -1,7 +1,6 @@
 .list {
    display: flex;
    gap: 40px;
-   
    &__link::after {
       content: '';
       position: absolute;
@@ -14,12 +13,13 @@
    }
    &__link {
       padding-bottom: 10px;
+      text-transform: capitalize;
       position: relative;
       transition: color ease-in-out 0.2s;
-      .list &_active{
+      .list &_active {
          color: rgb(var(--color-accent));
       }
-      &_active::after{
+      &_active::after {
          width: 100%;
       }
    }

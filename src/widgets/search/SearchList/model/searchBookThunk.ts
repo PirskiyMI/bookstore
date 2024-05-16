@@ -22,23 +22,27 @@ export const fetchBooksBySearch = createAsyncThunk<
    { value: string; page: number },
    { rejectValue: string }
 >('searchBook/fetchBooksBySearch', async ({ value, page }, { rejectWithValue }) => {
+   const formattedValue = value.replace(/\+/g, 'p').toLowerCase();
+
    try {
-      const result = await axiosRequest.get<IResponse>(`search/${value}/${page}`).then((res) => {
-         const { books, total } = res.data;
+      const result = await axiosRequest
+         .get<IResponse>(`search/${formattedValue}/${page}`)
+         .then((res) => {
+            const { books, total } = res.data;
 
-         const totalPage = Math.ceil(+total / 10);
-         const bookList = books.map(({ isbn13, price, ...el }) => {
-            const formattedPrice = price.replace(/\$/g, '');
+            const totalPage = Math.ceil(+total / 10);
+            const bookList = books.map(({ isbn13, price, ...el }) => {
+               const formattedPrice = price.replace(/\$/g, '');
 
-            return {
-               ISBN13: isbn13,
-               price: formattedPrice,
-               ...el,
-            };
+               return {
+                  ISBN13: isbn13,
+                  price: formattedPrice,
+                  ...el,
+               };
+            });
+
+            return { bookList, totalPage };
          });
-
-         return { bookList, totalPage };
-      });
 
       return result;
    } catch {

@@ -20,6 +20,10 @@ export const SearchList: FC = () => {
    const dispatch = useAppDispatch();
 
    useEffect(() => {
+      setCurrentPage(1);
+   }, [value]);
+
+   useEffect(() => {
       if (value) dispatch(fetchBooksBySearch({ value, page: currentPage }));
    }, [dispatch, currentPage, value]);
 
