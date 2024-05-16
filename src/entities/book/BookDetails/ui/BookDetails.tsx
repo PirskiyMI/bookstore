@@ -3,6 +3,7 @@ import { FC, ReactNode } from 'react';
 import { Rating } from 'shared/ui/Rating';
 
 import styles from './BookDetails.module.scss';
+import { NavLink } from 'react-router-dom';
 
 export interface IPublicationInformation {
    publisher: string;
@@ -53,7 +54,9 @@ export const BookDetails: FC<IProps> = ({
                </div>
                <ul className={styles.book__authors}>
                   {authorsList.map((el) => (
-                     <li key={el}>{el}</li>
+                     <li key={el}>
+                        <NavLink to={`/search/${el}`}>{el}</NavLink>
+                     </li>
                   ))}
                </ul>
             </div>

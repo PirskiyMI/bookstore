@@ -11,8 +11,6 @@ interface IProps {
 }
 
 export const Author: FC<IProps> = ({ author }) => {
-   const searchValue = author.split(' ')[1];
-
    return (
       <article className={styles.author}>
          <h2 className={styles.author__title}>Author</h2>
@@ -22,7 +20,7 @@ export const Author: FC<IProps> = ({ author }) => {
             </div>
             <h3 className={styles.author__name}>{author}</h3>
          </div>
-         <Link to={`/search/${searchValue}`} className={styles.author__link}>
+         <Link to={`/search/${author}`} className={styles.author__link}>
             Read more
             <ArrowIcon className={styles.author__arrow} />
          </Link>

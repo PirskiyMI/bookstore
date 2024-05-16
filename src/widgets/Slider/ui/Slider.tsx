@@ -17,10 +17,9 @@ import styles from './Slider.module.scss';
 
 interface IProps {
    title: string;
-   path: string;
 }
 
-export const Slider: FC<IProps> = ({ title, path }) => {
+export const Slider: FC<IProps> = ({ title }) => {
    const [bookList, setBookList] = useState<IBookPreview[]>([]);
    const [isLoading, setIsLoading] = useState(false);
    const [isError, setIsError] = useState(false);
@@ -66,7 +65,7 @@ export const Slider: FC<IProps> = ({ title, path }) => {
       <section className={styles.slider}>
          <div className={styles.sliderInfo}>
             <Title>{title}</Title>
-            <Link to={path}>
+            <Link to={`/search/${title}`}>
                <MyButton>SEE MORE</MyButton>
             </Link>
          </div>

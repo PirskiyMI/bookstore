@@ -1,0 +1,19 @@
+.searchList {
+   min-height: 80vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   gap: 40px;
+   &__list {
+      width: 100%;
+      display: grid;
+      justify-content: flex-start;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      grid-template-rows: repeat(auto);
+      gap: 30px;
+   }
+   &__pagination {
+      margin: 0 auto;
+   }
+}

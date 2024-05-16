@@ -1,0 +1,9 @@
+.searchInfo {
+   &__text {
+      font-size: var(--font-s-title-large);
+      color: var(--text-color);
+      &_span {
+         color: rgba(var(--color-primary));
+      }
+   }
+}

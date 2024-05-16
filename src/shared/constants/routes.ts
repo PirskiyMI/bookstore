@@ -4,5 +4,5 @@ export const enum Routes {
    CATEGORY_PAGE = '/category',
    ABOUT_US_PAGE = '/about',
    CART_PAGE = '/cart',
-   SEARCH_PAGE = '/search',
+   SEARCH_PAGE = '/search/:value',
 }

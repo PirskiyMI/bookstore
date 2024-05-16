@@ -1,0 +1,25 @@
+.pagination {
+   display: flex;
+   gap: 20px;
+   &__list {
+      display: flex;
+      gap: 10px;
+   }
+   &__item {
+      padding: 6px 8px;
+      color: var(--text-color);
+      border-radius: var(--radius-default);
+      transition: all ease 0.2s;
+      @media (any-hover: hover) {
+         &:hover {
+            color: rgb(var(--color-light));
+            background-color: rgb(var(--color-primary));
+         }
+      }
+      &_active {
+         color: rgb(var(--color-light));
+         background-color: rgb(var(--color-primary));
+         border-color: rgb(var(--color-primary));
+      }
+   }
+}
