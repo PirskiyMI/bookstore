@@ -1,1 +1,0 @@
-import{j as t}from"./index-ClqwNAVb.js";import{F as e}from"./Fallback-BYTg4674.js";const i=()=>t.jsx("div",{style:{height:"100%",display:"flex",alignItems:"center",justifyContent:"center"},children:t.jsx(e,{})});export{i as ErrorPage};
