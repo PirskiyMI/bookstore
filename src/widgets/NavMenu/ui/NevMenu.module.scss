@@ -1,7 +1,7 @@
 .nav {
    padding: 20px 0;
    background-color: var(--background-navigation-color);
-   @media (width <=1024px) {
+   @media (min-width: 1024px) {
       display: flex;
       align-items: center;
       justify-content: center;
