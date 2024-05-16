@@ -16,14 +16,14 @@ export const Banner: FC = () => {
    return (
       <div className={styles.banner}>
          <Swiper
-            modules={[Navigation, Pagination, Autoplay]}
+            modules={[Navigation, Pagination]}
             slidesPerView={1}
-            autoplay={{ delay: 2500 }}
             navigation={false}
-            pagination={{ clickable: true }}>
+            pagination={{ clickable: true }}
+            className={styles.banner__slider}>
             {slides.map(({ imgURL }, index) => (
                <SwiperSlide key={index} className={styles.banner__item}>
-                  <NavLink to={''}>
+                  <NavLink to={''} className={styles.banner__link}>
                      <img src={imgURL} alt="" className={styles.banner__img} />
                   </NavLink>
                </SwiperSlide>

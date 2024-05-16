@@ -1,1 +1,1 @@
-export * from './AllBooksPage'
+export * from './ui'

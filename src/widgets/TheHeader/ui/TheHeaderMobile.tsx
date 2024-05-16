@@ -21,7 +21,7 @@ export const TheHeaderMobile: FC = () => {
    }, [isOpen, dispatch, setIsNavMenuOpen]);
 
    return (
-      <div className={`${styles.header__container} container`}>
+      <div className={styles.header}>
          <div className={styles.header__top}>
             <Link to={Routes.MAIN_PAGE}>
                <Logo />

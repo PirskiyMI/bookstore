@@ -12,7 +12,9 @@ export const TheHeader: FC = () => {
 
    return (
       <header className={styles.header}>
-         {clientType === 'desktop' ? <TheHeaderDesktop /> : <TheHeaderMobile />}
+         <div className="container">
+            {clientType === 'desktop' ? <TheHeaderDesktop /> : <TheHeaderMobile />}
+         </div>
       </header>
    );
 };

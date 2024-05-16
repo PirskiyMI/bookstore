@@ -1,10 +1,20 @@
 .searchList {
-   min-height: 80vh;
+   height: 100%;
    display: flex;
    justify-content: center;
    align-items: center;
    flex-direction: column;
    gap: 40px;
+   &__title {
+      align-self: flex-start;
+      font-size: var(--font-s-title-large);
+      &_empty {
+         align-self: center;
+      }
+   }
+   &__accent {
+      color: rgba(var(--color-primary));
+   }
    &__list {
       width: 100%;
       display: grid;

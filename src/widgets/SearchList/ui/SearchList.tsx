@@ -37,24 +37,33 @@ export const SearchList: FC = () => {
 
    const { bookList, totalPage } = searchData;
 
-   return (
-      <section className={styles.searchList}>
-         <ul className={styles.searchList__list}>
-            {bookList.map(({ ISBN13, ...el }) => (
-               <li key={ISBN13} className={styles.searchList__item}>
-                  <BookPreview
-                     ISBN13={ISBN13}
-                     {...el}
-                     addToCartButton={
-                        <AddToCart
-                           ISBN13={ISBN13}
-                           data={{ count: 1, title: el.title, image: el.image, price: el.price }}
-                        />
-                     }
-                  />
-               </li>
-            ))}
-         </ul>
+   const title = (
+      <h2 className={styles.searchList__title}>
+         You searched for : <span className={styles.searchList__accent}>{value}</span>
+      </h2>
+   );
+
+   const books = (
+      <ul className={styles.searchList__list}>
+         {bookList.map(({ ISBN13, ...el }) => (
+            <li key={ISBN13} className={styles.searchList__item}>
+               <BookPreview
+                  ISBN13={ISBN13}
+                  {...el}
+                  addToCartButton={
+                     <AddToCart
+                        ISBN13={ISBN13}
+                        data={{ count: 1, title: el.title, image: el.image, price: el.price }}
+                     />
+                  }
+               />
+            </li>
+         ))}
+      </ul>
+   );
+
+   const pagination = (
+      <>
          {totalPage > 1 && (
             <div className={styles.searchList__pagination}>
                <Pagination
@@ -63,6 +72,22 @@ export const SearchList: FC = () => {
                   setCurrentPage={setCurrentPage}
                />
             </div>
+         )}
+      </>
+   );
+
+   return (
+      <section className={styles.searchList}>
+         {!bookList.length ? (
+            <h2 className={`${styles.searchList__title} ${styles.searchList__title_empty}`}>
+               Nothing was found for '{value}'
+            </h2>
+         ) : (
+            <>
+               {title}
+               {books}
+               {pagination}
+            </>
          )}
       </section>
    );
