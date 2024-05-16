@@ -75,6 +75,7 @@ export const Slider: FC<IProps> = ({ title }) => {
             slidesPerView={5}
             navigation={false}
             breakpoints={breakpoints}
+            spaceBetween={20}
             className={styles.slider__wrapper}>
             {bookList.map((el) => (
                <SwiperSlide key={el.ISBN13}>

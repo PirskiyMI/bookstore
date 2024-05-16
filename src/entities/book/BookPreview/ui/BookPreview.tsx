@@ -27,22 +27,16 @@ export const BookPreview: FC<IProps> = ({
          <div className={styles.bookPreview__body}>
             <img src={image} alt="Фото Товара" className={styles.bookPreview__image} />
             <div className={styles.bookPreview__text}>
-               <div>
-                  <h4 className={styles.bookPreview__title}>{title}</h4>
-                  {subtitle && <p className={styles.bookPreview__subtitle}>{subtitle}</p>}
-               </div>
-               <p className={styles.bookPreview__price}>${price}</p>
+               <Link to={`/books/${ISBN13}`} state={{ title }}>
+                  <p className={styles.bookPreview__price}>${price}</p>
+                  <div>
+                     <h4 className={styles.bookPreview__title}>{title}</h4>
+                     <p className={styles.bookPreview__subtitle}>{subtitle}</p>
+                  </div>
+               </Link>
+               <div className={styles.bookPreview__button}>{addToCartButton}</div>
             </div>
-         </div>
-         <div className={styles.bookPreview__popup}>
-            <Link to={`/books/${ISBN13}`} state={{ title }}>
-               <p className={styles.bookPreview__price}>${price}</p>
-               <div>
-                  <h4 className={styles.bookPreview__title}>{title}</h4>
-                  <p className={styles.bookPreview__subtitle}>{subtitle}</p>
-               </div>
-            </Link>
-            <div className={styles.bookPreview__button}>{addToCartButton}</div>
+
          </div>
       </article>
    );
