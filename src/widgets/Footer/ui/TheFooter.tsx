@@ -1,7 +1,10 @@
 import { FC } from 'react';
-import styles from './TheFooter.module.scss';
+
+import { listNavBook } from '../constants/listNavBook';
+import { listNavInfo } from '../constants/listNavInfo';
+
 import { TheFooterColumns } from './TheFooterColumns';
-import { listNavBook, listNavInfo } from '../constants';
+import styles from './TheFooter.module.scss';
 
 export const TheFooter: FC = () => {
    return (
