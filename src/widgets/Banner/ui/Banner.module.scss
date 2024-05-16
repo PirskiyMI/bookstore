@@ -5,7 +5,14 @@
    &__img {
       width: 100%;
    }
+   &__item{
+      max-height: 430px;
+   }
    &__img {
       object-fit: cover;
+   }
+   &__link{
+      display: block;
+      height: 100%;
    }
 }

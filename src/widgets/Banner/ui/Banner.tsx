@@ -1,7 +1,7 @@
 import { FC } from 'react';
-import { NavLink } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Navigation, Pagination } from 'swiper/modules';
+import { Link, NavLink } from 'react-router-dom';
 
 import 'swiper/scss';
 import 'swiper/scss/navigation';
@@ -21,13 +21,14 @@ export const Banner: FC = () => {
             autoplay={{ delay: 2500 }}
             navigation={false}
             pagination={{ clickable: true }}>
-            {slides.map(({ imgURL }, index) => (
+            {slides.map(({ imgURL, ISBN13, title}, index) => (
                <SwiperSlide key={index} className={styles.banner__item}>
-                  <NavLink to={''}>
+                  <Link to={`/books/${ISBN13}`} className={styles.banner__link} state={title}>
                      <img src={imgURL} alt="" className={styles.banner__img} />
-                  </NavLink>
+                  </Link>
                </SwiperSlide>
             ))}
+            
             <SliderController />
          </Swiper>
       </div>
