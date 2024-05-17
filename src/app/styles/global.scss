@@ -1,5 +1,6 @@
 @import './variables.scss';
 @import './normalize.scss';
+@import './swiper.scss';
 
 body {
    width: 100vw;
@@ -26,13 +27,6 @@ body {
    height: 100%;
 }
 
-.preloader {
-   flex-basis: 100%;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-}
-
 .container {
    width: 100%;
    max-width: 1232px;
@@ -40,13 +34,9 @@ body {
    padding: 0 16px;
 }
 
-.swiper-pagination-bullet {
-   background: var(--swiper-pagination-background-color);
-}
-.swiper-pagination-bullet-active {
-   background: rgb(var(--color-primary));
-}
-
-.title {
-   color: var(--title-color);
+.preloader {
+   flex-basis: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
 }

@@ -1,6 +1,7 @@
 .footerColumns {
    &__title {
       margin-bottom: 10px;
+      color: var(--title-color);
    }
    &__list {
       display: flex;
