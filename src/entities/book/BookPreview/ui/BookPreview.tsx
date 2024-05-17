@@ -34,7 +34,7 @@ export const BookPreview: FC<IProps> = ({
                <Link to={`/books/${ISBN13}`} state={{ title }}>
                   <p className={styles.bookPreview__price}>${price}</p>
                   <div>
-                     <h4 className={styles.bookPreview__title}>{title}</h4>
+                     <h3 className={styles.bookPreview__title}>{title}</h3>
                      <p className={styles.bookPreview__subtitle}>{subtitle}</p>
                   </div>
                </Link>

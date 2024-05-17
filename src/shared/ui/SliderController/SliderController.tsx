@@ -29,12 +29,14 @@ export const SliderController: FC<IProps> = ({ theme = 'main', indentation = 0 }
          <button
             style={{ left: `${indentation}px` }}
             onClick={handleToPrevSlide}
+            aria-label='to previous slide'
             className={`${styles.controller} ${styles.controller_prev}`}>
             <ArrowIcon className={arrowClasses} />
          </button>
          <button
             style={{ right: `${indentation}px` }}
             onClick={handleToNextSlide}
+            aria-label='to next slide'
             className={`${styles.controller} ${styles.controller_next}`}>
             <ArrowIcon className={arrowClasses} />
          </button>

@@ -20,7 +20,7 @@ export const ThemeToggler: FC = () => {
    }, [dispatch, setTheme, theme]);
 
    return (
-      <button onClick={toggleTheme} className={styles.themeToggler}>
+      <button aria-label="theme switcher" onClick={toggleTheme} className={styles.themeToggler}>
          {theme === 'light' ? (
             <SunIcon className={styles.themeToggler__icon} />
          ) : (

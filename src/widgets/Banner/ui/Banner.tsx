@@ -32,8 +32,18 @@ export const Banner: FC = () => {
 
             return (
                <SwiperSlide key={index} className={styles.banner__item}>
-                  <Link to={path} className={styles.banner__link} state={title}>
-                     <img src={imgURL} alt="" className={styles.banner__img} />
+                  <Link
+                     to={path}
+                     state={title}
+                     aria-label={`Read more about ${title}`}
+                     className={styles.banner__link}>
+                     <img
+                        src={imgURL}
+                        rel="preload"
+                        fetchPriority="high"
+                        alt={`Banner for ${title}`}
+                        className={styles.banner__img}
+                     />
                   </Link>
                </SwiperSlide>
             );
