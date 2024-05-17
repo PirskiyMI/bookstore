@@ -22,7 +22,12 @@ export const BookPreview: FC<IProps> = ({
    return (
       <article className={`${styles.bookPreview} ${isFree && styles.bookPreview_free}`} id={ISBN13}>
          <div className={styles.bookPreview__body}>
-            <img src={image} alt="Фото Товара" className={styles.bookPreview__image} />
+            <img
+               src={image}
+               loading="lazy"
+               alt={`Book cover for ${title}`}
+               className={`${styles.bookPreview__image}`}
+            />
             <div className={styles.bookPreview__text}>
                <Link to={`/books/${ISBN13}`} state={{ title }}>
                   <p className={styles.bookPreview__price}>${price}</p>

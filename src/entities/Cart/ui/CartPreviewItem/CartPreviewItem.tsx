@@ -1,15 +1,10 @@
 import { FC, memo } from 'react';
 
+import { ICartItemPreview } from '../../types';
+
 import styles from './CartPreviewItem.module.scss';
 
-interface IProps {
-   title: string;
-   price: string;
-   image: string;
-   count: number;
-}
-
-export const CartPreviewItem: FC<IProps> = memo(({ title, price, image, count }) => {
+export const CartPreviewItem: FC<ICartItemPreview> = memo(({ title, price, image, count }) => {
    return (
       <article className={styles.cartPreviewItem}>
          <img src={image} alt="" className={styles.cartPreviewItem__image} />

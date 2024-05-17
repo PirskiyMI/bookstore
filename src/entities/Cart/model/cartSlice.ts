@@ -1,13 +1,8 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
-interface IData {
-   title: string;
-   image: string;
-   price: string;
-   count: number;
-}
+import { ICartItemPreview } from '../types';
 
-type TState = Record<string, IData>;
+type TState = Record<string, ICartItemPreview>;
 
 const initialState: TState = {};
 
@@ -27,7 +22,7 @@ const cartSlice = createSlice({
             payload,
          }: PayloadAction<{
             ISBN13: string;
-            data: IData;
+            data: ICartItemPreview;
          }>,
       ) => {
          state[payload.ISBN13] = payload.data;

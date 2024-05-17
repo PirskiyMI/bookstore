@@ -1,26 +1,12 @@
 import { FC, ReactNode } from 'react';
+import { NavLink } from 'react-router-dom';
 
 import { Rating } from 'shared/ui/Rating';
 
+import { IBookDetails } from '../types/bookDetails';
+import { IPublicationInformation } from '../types/publicationInformation';
+
 import styles from './BookDetails.module.scss';
-import { NavLink } from 'react-router-dom';
-
-export interface IPublicationInformation {
-   publisher: string;
-   published: string;
-   pages: string;
-   ISBN10: string;
-   ISBN13: string;
-}
-
-export interface IBookDetails {
-   title: string;
-   subtitle: string;
-   authors: string;
-   rating: string;
-   price: string;
-   image: string;
-}
 
 interface IProps extends IBookDetails {
    publication: IPublicationInformation;

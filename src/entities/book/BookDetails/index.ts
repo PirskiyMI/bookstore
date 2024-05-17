@@ -1,2 +1,2 @@
 export * from './ui';
-export { bookDetails } from './mock.data';
+export * from './types';

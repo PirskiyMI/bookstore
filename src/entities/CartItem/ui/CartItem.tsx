@@ -19,6 +19,7 @@ export const CartItem: FC<IProps> = memo(
             <Link to={`/books/${ISBN13}`} state={title} className={styles.cartItem__preview}>
                <img
                   src={image}
+                  loading="lazy"
                   alt={`book cover for ${title}`}
                   className={styles.cartItem__image}
                />
