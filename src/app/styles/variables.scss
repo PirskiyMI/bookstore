@@ -28,9 +28,9 @@
 }
 
 body[data-theme='light'] {
-   --text-color: rgba(var(--color-gray), 0.8);
+   --text-color: rgb(var(--color-gray));
    --title-color: rgb(var(--color-accent));
-   --border-color: rgba(var(--color-gray), 0.4);
+   --border-color: rgba(var(--color-gray), 0.8);
    --background-color: rgb(var(--color-light));
    --background-navigation-color: rgb(var(--color-light-gray));
    --swiper-pagination-background-color: rgb(var(--color-dark));
@@ -39,7 +39,7 @@ body[data-theme='light'] {
 body[data-theme='dark'] {
    --text-color: rgba(var(--color-light), 0.8);
    --title-color: rgb(var(--color-primary));
-   --border-color: rgba(var(--color-light), 0.4);
+   --border-color: rgba(var(--color-light), 0.6);
    --background-color: rgb(var(--color-dark));
    --background-navigation-color: rgb(var(--color-dark-gray));
    --swiper-pagination-background-color: rgb(var(--color-light));

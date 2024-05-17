@@ -23,6 +23,8 @@ export const BookPreview: FC<IProps> = ({
       <article className={`${styles.bookPreview} ${isFree && styles.bookPreview_free}`} id={ISBN13}>
          <div className={styles.bookPreview__body}>
             <img
+               rel="preload"
+               fetchPriority="high"
                src={image}
                loading="lazy"
                alt={`Book cover for ${title}`}

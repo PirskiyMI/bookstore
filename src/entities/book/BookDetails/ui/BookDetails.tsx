@@ -28,7 +28,13 @@ export const BookDetails: FC<IProps> = ({
 
    return (
       <article className={styles.book}>
-         <img src={image} alt={`book cover for ${title}`} className={styles.book__image} />
+         <img
+            rel="preload"
+            fetchPriority="high"
+            src={image}
+            alt={`book cover for ${title}`}
+            className={styles.book__image}
+         />
          <div className={styles.book__body}>
             <div className={styles.book__block}>
                <div>
