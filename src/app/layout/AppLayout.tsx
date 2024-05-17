@@ -9,7 +9,7 @@ import { useAppDispatch, useAppSelector } from 'shared/lib/hooks';
 import { clientTypeActions } from 'shared/model/slices';
 import { ThemeToggler, themeSelector } from 'features/ThemeToggler';
 import { TheFooter } from 'widgets/Footer';
-import { TheHeader } from 'widgets/TheHeader';
+import { TheHeader } from 'widgets/Header';
 import { NavMenu } from 'widgets/NavMenu';
 
 import styles from './AppLayout.module.scss';
