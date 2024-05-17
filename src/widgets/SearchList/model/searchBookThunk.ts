@@ -1,21 +1,9 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import { axiosRequest } from 'shared/api';
+import { ISearchResponse } from 'shared/lib/types';
 
 import { IState } from './searchBookSlice';
-
-interface IResponse {
-   total: string;
-   page: string;
-   books: {
-      title: string;
-      subtitle: string;
-      isbn13: string;
-      price: string;
-      image: string;
-      url: string;
-   }[];
-}
 
 export const fetchBooksBySearch = createAsyncThunk<
    IState['data'],
@@ -26,7 +14,7 @@ export const fetchBooksBySearch = createAsyncThunk<
 
    try {
       const result = await axiosRequest
-         .get<IResponse>(`search/${formattedValue}/${page}`)
+         .get<ISearchResponse>(`search/${formattedValue}/${page}`)
          .then((res) => {
             const { books, total } = res.data;
 

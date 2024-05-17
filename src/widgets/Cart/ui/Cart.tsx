@@ -12,7 +12,7 @@ export const Cart: FC = () => {
    const cartItemList = useAppSelector(cartListSelector);
    const totalPrice = useAppSelector(cartTotalPriceSelector);
 
-   const cartList = (
+   const cartListElement: JSX.Element = (
       <ul className={styles.cart__list}>
          {cartItemList.map(([ISBN13, el]) => (
             <li key={ISBN13} className={styles.cart__item}>
@@ -27,19 +27,19 @@ export const Cart: FC = () => {
       </ul>
    );
 
+   const cartBodyElement: JSX.Element = (
+      <>
+         <h2 className={styles.cart__title}>Products</h2>
+         {cartListElement}
+         <div className={styles.cart__footer}>
+            Total: <span className={styles.cart__total}>${totalPrice}</span>
+         </div>
+      </>
+   );
+
    return (
       <section className={styles.cart}>
-         {!cartItemList.length ? (
-            <div>Cart is empty</div>
-         ) : (
-            <>
-               <h2 className={styles.cart__title}>Products</h2>
-               {cartList}
-               <div className={styles.cart__footer}>
-                  Total: <span className={styles.cart__total}>${totalPrice}</span>
-               </div>
-            </>
-         )}
+         {!cartItemList.length ? <div>Cart is empty</div> : <>{cartBodyElement}</>}
       </section>
    );
 };

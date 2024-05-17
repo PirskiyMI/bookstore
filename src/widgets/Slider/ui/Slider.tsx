@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, useEffect, useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -14,6 +14,7 @@ import { AddToCart } from 'features/cart/AddToCart';
 import { fetchBookList } from '../api/fetchBookList';
 
 import styles from './Slider.module.scss';
+import { SwiperOptions } from 'swiper/types';
 
 interface IProps {
    title: string;
@@ -38,23 +39,32 @@ export const Slider: FC<IProps> = ({ title }) => {
       fetchBooks();
    }, [title]);
 
-   const breakpoints = {
-      320: {
-         slidesPerView: 1,
-      },
-      560: {
-         slidesPerView: 2,
-      },
-      768: {
-         slidesPerView: 3,
-      },
-      1024: {
-         slidesPerView: 4,
-      },
-      1440: {
+   const swiperConfig: SwiperOptions = useMemo(
+      () => ({
          slidesPerView: 5,
-      },
-   };
+         spaceBetween: 20,
+         navigation: false,
+         modules: [Navigation],
+         breakpoints: {
+            320: {
+               slidesPerView: 1,
+            },
+            560: {
+               slidesPerView: 2,
+            },
+            768: {
+               slidesPerView: 3,
+            },
+            1024: {
+               slidesPerView: 4,
+            },
+            1440: {
+               slidesPerView: 5,
+            },
+         },
+      }),
+      [],
+   );
 
    if (isLoading)
       return (
@@ -62,7 +72,29 @@ export const Slider: FC<IProps> = ({ title }) => {
             <Preloader />
          </section>
       );
-   if (isError) return <section>Some error</section>;
+   if (isError) return <section>Failed to get list of books</section>;
+
+   const sliderElement: JSX.Element = (
+      <Swiper {...swiperConfig} className={styles.slider__wrapper}>
+         {bookList.map((el) => (
+            <SwiperSlide key={el.ISBN13}>
+               <BookPreview
+                  {...el}
+                  addToCartButton={
+                     <AddToCart
+                        ISBN13={el.ISBN13}
+                        data={{
+                           count: 1,
+                           ...el,
+                        }}
+                     />
+                  }
+               />
+            </SwiperSlide>
+         ))}
+         <SliderController theme="alternative" indentation={-10} />
+      </Swiper>
+   );
 
    return (
       <section className={styles.slider}>
@@ -72,34 +104,7 @@ export const Slider: FC<IProps> = ({ title }) => {
                <MyButton>SEE MORE</MyButton>
             </Link>
          </div>
-
-         <Swiper
-            modules={[Navigation]}
-            slidesPerView={5}
-            navigation={false}
-            breakpoints={breakpoints}
-            spaceBetween={20}
-            className={styles.slider__wrapper}>
-            {bookList.map((el) => (
-               <SwiperSlide key={el.ISBN13}>
-                  <BookPreview
-                     {...el}
-                     addToCartButton={
-                        <AddToCart
-                           ISBN13={el.ISBN13}
-                           data={{
-                              count: 1,
-                              image: el.image,
-                              price: el.price,
-                              title: el.title,
-                           }}
-                        />
-                     }
-                  />
-               </SwiperSlide>
-            ))}
-            <SliderController theme="alternative" indentation={-10} />
-         </Swiper>
+         {sliderElement}
       </section>
    );
 };

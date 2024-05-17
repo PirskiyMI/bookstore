@@ -1,22 +1,20 @@
+import { FC, memo } from 'react';
 import { Link } from 'react-router-dom';
-import { FC } from 'react';
 
 import { Routes } from 'shared/constants';
 import { Logo } from 'shared/ui/Logo';
+import { SearchForm } from 'features/SearchForm';
 
 import styles from './TheHeaderDesktop.module.scss';
 import { TheHeaderCartButton } from './TheHeaderCartButton';
-import { SearchForm } from 'features/SearchForm';
 
-export const TheHeaderDesktop: FC = () => {
+export const TheHeaderDesktop: FC = memo(() => {
    return (
       <div className={styles.header}>
          <Link to={Routes.MAIN_PAGE}>
             <Logo />
          </Link>
-         <div className={styles.header__search}>
-            <SearchForm />
-         </div>
+         <TheHeaderSearch />
          <div className={styles.header__cart}>
             <div className={styles.header__button}>
                <TheHeaderCartButton />
@@ -24,4 +22,12 @@ export const TheHeaderDesktop: FC = () => {
          </div>
       </div>
    );
-};
+});
+
+const TheHeaderSearch: FC = memo(() => {
+   return (
+      <div className={styles.header__search}>
+         <SearchForm />
+      </div>
+   );
+});

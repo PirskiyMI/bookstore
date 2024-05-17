@@ -1,27 +1,18 @@
 import { axiosRequest } from 'shared/api';
+import { ISearchResponse } from 'shared/lib/types';
+import { IBookPreview } from 'entities/book/BookPreview';
 
-interface IBook {
-   title: string;
-   subtitle: string;
-   isbn13: string;
-   price: string;
-   image: string;
-   url: string;
-}
-
-interface IResponse {
-   total: string;
-   page: string;
-   books: IBook[];
-}
-
-export const fetchBookList = async (category: string) => {
-   const response = await axiosRequest.get<IResponse>(`search/${category}`).then((res) => {
-      const result = res.data.books.map((el) => {
+export const fetchBookList = async (category: string): Promise<IBookPreview[]> => {
+   return await axiosRequest.get<ISearchResponse>(`search/${category}`).then((res) => {
+      return res.data.books.map((el) => {
          const formattedPrice = el.price.replace(/\$/g, '');
-         return { ...el, ISBN13: el.isbn13, price: formattedPrice };
+         return {
+            title: el.title,
+            image: el.image,
+            subtitle: el.subtitle,
+            ISBN13: el.isbn13,
+            price: formattedPrice,
+         };
       });
-      return result;
    });
-   return response;
 };

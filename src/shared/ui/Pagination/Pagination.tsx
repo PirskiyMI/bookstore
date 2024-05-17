@@ -51,7 +51,7 @@ export const Pagination: FC<IProps> = ({ totalPage, currentPage, setCurrentPage 
                      ? `${styles.pagination__item} ${styles.pagination__item_active}`
                      : styles.pagination__item;
                return (
-                  <li>
+                  <li key={el}>
                      <button onClick={() => setCurrentPage(el)} className={isActive}>
                         {el}
                      </button>

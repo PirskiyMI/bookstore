@@ -35,54 +35,65 @@ export const BookInformation: FC<IProps> = ({ ISBN13 }) => {
       dispatch(fetchBookInformation(ISBN13));
    }, [ISBN13, dispatch]);
 
-   if (loading)
+   if (loading) {
       return (
          <section className="preloader">
             <Preloader />
          </section>
       );
-   if (!bookInformation)
+   } else if (!bookInformation) {
       return (
          <section>
             <Fallback />
          </section>
       );
+   }
 
    const { bookDetails, bookDescription, publicationInformation } = bookInformation;
+
+   const authorsElement: JSX.Element = (
+      <>
+         {clientType === 'desktop' && (
+            <Swiper
+               modules={[Pagination]}
+               slidesPerView={1}
+               spaceBetween={20}
+               grabCursor
+               pagination={{ clickable: true }}
+               className={styles.information__authors}>
+               {bookDetails.authors.split(', ').map((el) => (
+                  <SwiperSlide key={el}>
+                     <Author author={el} />
+                  </SwiperSlide>
+               ))}
+            </Swiper>
+         )}
+      </>
+   );
+
+   const bookDetailsElement: JSX.Element = (
+      <BookDetails
+         {...bookDetails}
+         publication={publicationInformation}
+         addToCartButton={
+            <AddToCart
+               data={{
+                  title: bookDetails.title,
+                  image: bookDetails.image,
+                  price: bookDetails.price,
+                  count: 1,
+               }}
+               ISBN13={ISBN13}
+            />
+         }
+      />
+   );
 
    return (
       <section className={styles.information}>
          <div className={styles.information__header}>
-            <BookDetails
-               {...bookDetails}
-               publication={publicationInformation}
-               addToCartButton={
-                  <AddToCart
-                     data={{
-                        title: bookDetails.title,
-                        image: bookDetails.image,
-                        price: bookDetails.price,
-                        count: 1,
-                     }}
-                     ISBN13={ISBN13}
-                  />
-               }
-            />
-            {clientType === 'desktop' && (
-               <Swiper
-                  modules={[Pagination]}
-                  slidesPerView={1}
-                  spaceBetween={20}
-                  grabCursor
-                  pagination={{ clickable: true }}
-                  className={styles.information__authors}>
-                  {bookDetails.authors.split(', ').map((el) => (
-                     <SwiperSlide key={el}>
-                        <Author author={el} />
-                     </SwiperSlide>
-                  ))}
-               </Swiper>
-            )}
+            {bookDetailsElement}
+            {authorsElement}
          </div>
          <BookDescription {...bookDescription} />
       </section>

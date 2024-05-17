@@ -1,14 +1,11 @@
 import { FC, ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 
+import { IBookPreview } from '../types';
+
 import styles from './BookPreview.module.scss';
 
-export interface IProps {
-   ISBN13: string;
-   title: string;
-   price: string;
-   image: string;
-   subtitle?: string;
+interface IProps extends IBookPreview {
    addToCartButton?: ReactNode;
 }
 
@@ -36,7 +33,6 @@ export const BookPreview: FC<IProps> = ({
                </Link>
                <div className={styles.bookPreview__button}>{addToCartButton}</div>
             </div>
-
          </div>
       </article>
    );

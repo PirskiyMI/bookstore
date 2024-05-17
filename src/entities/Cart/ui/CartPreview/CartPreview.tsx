@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import { NavLink } from 'react-router-dom';
 
 import { MyButton } from 'shared/ui/MyButton/MyButton';
@@ -9,8 +9,9 @@ import { cartPreviewListSelector } from './../../model/cartSelectors';
 
 import styles from './CartPreview.module.scss';
 import { CartPreviewItem } from '../CartPreviewItem/CartPreviewItem';
+import { Routes } from 'shared/constants';
 
-export const CartPreview: FC = () => {
+export const CartPreview: FC = memo(() => {
    const previewList = useAppSelector(cartPreviewListSelector);
    const totalPrice = useAppSelector(cartTotalPriceSelector);
 
@@ -26,8 +27,6 @@ export const CartPreview: FC = () => {
       </ul>
    );
 
-   console.log(totalPrice);
-
    return (
       <div className={styles.cartPreview}>
          <div className={styles.cartPreview__wrapper}>
@@ -36,11 +35,11 @@ export const CartPreview: FC = () => {
             </div>
             <div className={styles.cartPreview__part}>Subtotal: ${totalPrice}</div>
             <div className={styles.cartPreview__part}>
-               <NavLink to={'/cart'}>
+               <NavLink to={Routes.CART_PAGE}>
                   <MyButton>View Cart</MyButton>
                </NavLink>
             </div>
          </div>
       </div>
    );
-};
+});

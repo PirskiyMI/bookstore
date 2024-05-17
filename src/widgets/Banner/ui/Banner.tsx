@@ -24,22 +24,27 @@ export const Banner: FC = () => {
       }),
       [],
    );
-   const slideList: JSX.Element = (
+
+   const slidesElement: JSX.Element = (
       <>
-         {slides.map(({ imgURL, ISBN13, title }, index) => (
-            <SwiperSlide key={index} className={styles.banner__item}>
-               <Link to={`/books/${ISBN13}`} className={styles.banner__link} state={title}>
-                  <img src={imgURL} alt="" className={styles.banner__img} />
-               </Link>
-            </SwiperSlide>
-         ))}
+         {slides.map(({ imgURL, ISBN13, title }, index) => {
+            const path = `/books/${ISBN13}`;
+
+            return (
+               <SwiperSlide key={index} className={styles.banner__item}>
+                  <Link to={path} className={styles.banner__link} state={title}>
+                     <img src={imgURL} alt="" className={styles.banner__img} />
+                  </Link>
+               </SwiperSlide>
+            );
+         })}
       </>
    );
 
    return (
       <div className={styles.banner}>
          <Swiper {...swiperConfigs}>
-            {slideList}
+            {slidesElement}
             <SliderController />
          </Swiper>
       </div>

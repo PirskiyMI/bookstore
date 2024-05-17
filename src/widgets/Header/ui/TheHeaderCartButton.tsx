@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import { Link } from 'react-router-dom';
 
 import { useAppSelector } from 'shared/lib/hooks';
@@ -9,7 +9,7 @@ import { CartPreview, cartTotalCountSelector } from 'entities/Cart';
 
 import styles from './TheHeaderCartButton.module.scss';
 
-export const TheHeaderCartButton: FC = () => {
+export const TheHeaderCartButton: FC = memo(() => {
    const totalCount = useAppSelector(cartTotalCountSelector);
 
    return (
@@ -27,4 +27,4 @@ export const TheHeaderCartButton: FC = () => {
          </div>
       </div>
    );
-};
+});
